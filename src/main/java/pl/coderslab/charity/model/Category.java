@@ -2,10 +2,7 @@ package pl.coderslab.charity.model;
 
 import org.hibernate.validator.constraints.UniqueElements;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "categories")
@@ -13,9 +10,13 @@ public class Category {
 
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private Long id;
-    @UniqueElements
+    @Column(unique = true)
     private String name;
+
+    public Category() {
+    }
 
     public Category(String name) {
         this.name = name;
