@@ -15,12 +15,26 @@ public class Institution {
     private String name;
     private String description;
 
+
+    @OneToOne
+    private Donation donation;
+
+
+
     public Institution() {
     }
 
     public Institution(String name, String description) {
         this.name = name;
         this.description = description;
+    }
+
+    public Donation getDonation() {
+        return donation;
+    }
+
+    public void setDonation(Donation donation) {
+        this.donation = donation;
     }
 
     public Long getId() {

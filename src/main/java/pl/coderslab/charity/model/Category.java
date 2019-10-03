@@ -15,11 +15,26 @@ public class Category {
     @Column(unique = true)
     private String name;
 
+
+    @ManyToOne
+    private Donation donation;
+
+
+
+
     public Category() {
     }
 
     public Category(String name) {
         this.name = name;
+    }
+
+    public Donation getDonation() {
+        return donation;
+    }
+
+    public void setDonation(Donation donation) {
+        this.donation = donation;
     }
 
     public Long getId() {

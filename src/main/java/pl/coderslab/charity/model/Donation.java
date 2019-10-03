@@ -1,10 +1,11 @@
 package pl.coderslab.charity.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name = "donations")
 public class Donation {
 
 
@@ -13,8 +14,10 @@ public class Donation {
     private Long id;
     private Long quantity; //(liczba worków)
 
-    private Category categories; //(lista obiektów typu Category) , pamiętaj o odpowiedniej adnotacji
+    @OneToMany(mappedBy = "donation")
+    private List<Category> categories; //(lista obiektów typu Category) , pamiętaj o odpowiedniej adnotacji
 
+    @OneToOne(mappedBy = "donation")
     private Institution institution; // (obiekt typu Institution), pamiętaj o odpowiedniej adnotacji.
 
     private String street;
@@ -27,7 +30,7 @@ public class Donation {
     public Donation() {
     }
 
-    public Donation(Category categories, Institution institution) {
+    public Donation(List<Category> categories, Institution institution) {
         this.categories = categories;
         this.institution = institution;
     }
@@ -48,11 +51,11 @@ public class Donation {
         this.quantity = quantity;
     }
 
-    public Category getCategories() {
+    public List<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(Category categories) {
+    public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
 
