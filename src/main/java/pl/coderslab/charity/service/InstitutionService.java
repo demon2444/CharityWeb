@@ -26,6 +26,6 @@ public class InstitutionService {
         return institutionRepository.findByName(name);
     }
 
-    
+
 
 }
