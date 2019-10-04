@@ -26,6 +26,8 @@ public class InstitutionService {
         return institutionRepository.findByName(name);
     }
 
-
+    public List<Institution> findAllFirstHalf(){
+        return institutionRepository.findAllFirstHalf();
+    }
 
 }

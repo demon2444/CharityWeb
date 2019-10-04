@@ -1,7 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -85,19 +88,21 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <li>
-                <div class="col">
+            <li><c:forEach items="${institutions}" var="in">
+                <%--<div class="col">
                     <div class="title">Fundacja "Dbam o Zdrowie"</div>
                     <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
+                </div>--%>
 
                 <div class="col">
                     <div class="title">Fundacja "A kogo"</div>
                     <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
                 </div>
+
+            </c:forEach>
             </li>
 
-            <li>
+            <%--<li>
                 <div class="col">
                     <div class="title">Fundacja “Dla dzieci"</div>
                     <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
@@ -107,7 +112,7 @@
                     <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
                 </div>
 
-            </li>
+            </li>--%>
 
         </ul>
     </div>
