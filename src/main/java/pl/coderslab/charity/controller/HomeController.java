@@ -26,8 +26,11 @@ public class HomeController {
 
     @RequestMapping("/")
     public String homeAction(Model model){
-        List<Institution> institutions = institutionService.findAllFirstHalf();
-        model.addAttribute("institutions", institutions);
+        List<Institution> institutionsFirst = institutionService.findAllFirstHalf();
+        List<Institution> institutionsSecond = institutionService.findAllSecondHalf();
+
+        model.addAttribute("institutionsFirst", institutionsFirst);
+        model.addAttribute("institutionsSecond", institutionsSecond);
         return "index";
     }
 

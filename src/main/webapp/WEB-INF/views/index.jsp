@@ -88,31 +88,24 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <li><c:forEach items="${institutions}" var="in">
-                <%--<div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>--%>
+            <li><c:forEach items="${institutionsFirst}" var="in">
+                
 
                 <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
+                    <div class="title">${in.name}</div>
+                    <div class="subtitle">${in.description}</div>
                 </div>
 
             </c:forEach>
             </li>
 
-            <%--<li>
+            <li><c:forEach items="${institutionsSecond}" var="sec" >
                 <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
+                    <div class="title">${sec.name}</div>
+                    <div class="subtitle">${sec.description}</div>
                 </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>--%>
+            </c:forEach>
+            </li>
 
         </ul>
     </div>

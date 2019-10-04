@@ -30,4 +30,8 @@ public class InstitutionService {
         return institutionRepository.findAllFirstHalf();
     }
 
+    public List<Institution> findAllSecondHalf() {
+        return institutionRepository.findAllSecondHalf();
+    }
+
 }

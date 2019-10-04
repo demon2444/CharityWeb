@@ -14,7 +14,10 @@ public interface InstitutionRepository extends JpaRepository<Institution, Long> 
 
     List<Institution> findAll();
 
-    @Query("select i from Institution i where i.id = 2")
+    @Query("select i from Institution i where i.id % 2 = 1")
     List<Institution> findAllFirstHalf();
+
+    @Query("select i from Institution i where i.id % 2 = 0")
+    List<Institution> findAllSecondHalf();
 
 }
