@@ -16,8 +16,6 @@ public class Institution {
     private String description;
 
 
-    @OneToOne
-    private Donation donation;
 
 
 
@@ -29,13 +27,7 @@ public class Institution {
         this.description = description;
     }
 
-    public Donation getDonation() {
-        return donation;
-    }
 
-    public void setDonation(Donation donation) {
-        this.donation = donation;
-    }
 
     public Long getId() {
         return id;

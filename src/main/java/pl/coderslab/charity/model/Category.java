@@ -16,8 +16,7 @@ public class Category {
     private String name;
 
 
-    @ManyToOne
-    private Donation donation;
+
 
 
 
@@ -29,13 +28,7 @@ public class Category {
         this.name = name;
     }
 
-    public Donation getDonation() {
-        return donation;
-    }
 
-    public void setDonation(Donation donation) {
-        this.donation = donation;
-    }
 
     public Long getId() {
         return id;

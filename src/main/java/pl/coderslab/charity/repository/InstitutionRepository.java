@@ -1,6 +1,7 @@
 package pl.coderslab.charity.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Institution;
 
@@ -12,5 +13,6 @@ public interface InstitutionRepository extends JpaRepository<Category, Long> {
 
     List<Institution> findByName(String name);
 
-
+    /*@Query("SELECT i from Institution")
+    List<Institution> findAllInstitution();*/
 }
