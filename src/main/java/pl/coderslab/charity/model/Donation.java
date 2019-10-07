@@ -1,6 +1,10 @@
 package pl.coderslab.charity.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +19,7 @@ public class Donation {
     private Long quantity; //(liczba worków)
 
     @OneToMany
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "donation_id")
     private List<Category> categories; //(lista obiektów typu Category) , pamiętaj o odpowiedniej adnotacji
 
     @ManyToOne
@@ -25,9 +29,11 @@ public class Donation {
     private String street;
     private String city;
     private Long zipCode;
-    private Date pickUpDate;
-    private Date pickUpTime;
-    private Date pickUpComment;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate pickUpDate;
+    private Time pickUpTime;
+    private String pickUpComment;
 
     public Donation() {
     }
@@ -93,11 +99,11 @@ public class Donation {
         this.zipCode = zipCode;
     }
 
-    public Date getPickUpDate() {
+    public LocalDate getPickUpDate() {
         return pickUpDate;
     }
 
-    public void setPickUpDate(Date pickUpDate) {
+    public void setPickUpDate(LocalDate pickUpDate) {
         this.pickUpDate = pickUpDate;
     }
 
@@ -105,15 +111,15 @@ public class Donation {
         return pickUpTime;
     }
 
-    public void setPickUpTime(Date pickUpTime) {
+    public void setPickUpTime(Time pickUpTime) {
         this.pickUpTime = pickUpTime;
     }
 
-    public Date getPickUpComment() {
+    public String getPickUpComment() {
         return pickUpComment;
     }
 
-    public void setPickUpComment(Date pickUpComment) {
+    public void setPickUpComment(String pickUpComment) {
         this.pickUpComment = pickUpComment;
     }
 }

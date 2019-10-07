@@ -89,7 +89,7 @@
 
         <ul class="help--slides-items">
             <li><c:forEach items="${institutionsFirst}" var="in">
-                
+
 
                 <div class="col">
                     <div class="title">${in.name}</div>
