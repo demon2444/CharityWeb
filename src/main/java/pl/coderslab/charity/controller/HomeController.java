@@ -33,8 +33,10 @@ public class HomeController {
         List<Institution> institutionsSecond = institutionService.findAllSecondHalf();
 
         Long quantitySum = donationService.sumQuantity();
+        Long donateInstitutions = donationService.donateInstitutions();
 
         model.addAttribute("quantitySum", quantitySum);
+        model.addAttribute("donateInstitutions", donateInstitutions);
         model.addAttribute("institutionsFirst", institutionsFirst);
         model.addAttribute("institutionsSecond", institutionsSecond);
         return "index";

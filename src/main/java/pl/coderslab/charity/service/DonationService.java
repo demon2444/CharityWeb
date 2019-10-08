@@ -24,4 +24,15 @@ public class DonationService {
 
     }
 
+    public Long donateInstitutions() {
+        Long sum = donationRepository.countDistinctByInstitution();
+        if(sum == null) {
+            return 0l;
+        } else{
+            return sum;
+        }
+
+    }
+
+
 }
