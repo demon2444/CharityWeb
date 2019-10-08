@@ -18,12 +18,13 @@ public class Donation {
     private Long id;
     private Long quantity; //(liczba worków)
 
-    @OneToMany
-    @JoinColumn(name = "donation_id")
+    @ManyToMany(mappedBy = "donations")
     private List<Category> categories; //(lista obiektów typu Category) , pamiętaj o odpowiedniej adnotacji
 
+        //todo dodać adnotacje w institution do darów
+
+
     @ManyToOne
-    @JoinColumn(name = "institution_id")
     private Institution institution; // (obiekt typu Institution), pamiętaj o odpowiedniej adnotacji.
 
     private String street;

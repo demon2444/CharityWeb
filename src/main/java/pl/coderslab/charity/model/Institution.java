@@ -4,6 +4,7 @@ package pl.coderslab.charity.model;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Institution {
@@ -11,13 +12,16 @@ public class Institution {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    @Column(unique = true)
+
     private String name;
     private String description;
 
+    @OneToMany(mappedBy = "institution", cascade = CascadeType.ALL)
+    private List<Donation> donation;
 
-
-
+    public Institution(List<Donation> donation) {
+        this.donation = donation;
+    }
 
     public Institution() {
     }
@@ -28,6 +32,13 @@ public class Institution {
     }
 
 
+    public List<Donation> getDonation() {
+        return donation;
+    }
+
+    public void setDonation(List<Donation> donation) {
+        this.donation = donation;
+    }
 
     public Long getId() {
         return id;
