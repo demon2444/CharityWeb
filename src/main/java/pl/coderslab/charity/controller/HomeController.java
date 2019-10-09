@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.model.Institution;
+import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.DonationService;
 import pl.coderslab.charity.service.InstitutionService;
 
@@ -32,6 +33,9 @@ public class HomeController {
     public String homeAction(Model model){
         List<Institution> institutionsFirst = institutionService.findAllFirstHalf();
         List<Institution> institutionsSecond = institutionService.findAllSecondHalf();
+
+        User user = null;
+        model.addAttribute("user", user);
 
         Long quantitySum = donationService.sumQuantity();
         Long donateInstitutions = donationService.donateInstitutions();
