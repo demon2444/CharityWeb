@@ -5,7 +5,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.sql.Time;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,7 +20,7 @@ public class Donation {
     @ManyToMany(mappedBy = "donations")
     private List<Category> categories; //(lista obiektów typu Category) , pamiętaj o odpowiedniej adnotacji
 
-        //todo dodać adnotacje w institution do darów
+    //todo dodać adnotacje w institution do darów
 
 
     @ManyToOne
@@ -108,7 +107,7 @@ public class Donation {
         this.pickUpDate = pickUpDate;
     }
 
-    public Date getPickUpTime() {
+    public Time getPickUpTime() {
         return pickUpTime;
     }
 

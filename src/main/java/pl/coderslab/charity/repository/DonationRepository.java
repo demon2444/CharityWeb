@@ -12,4 +12,6 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     @Query("select count(distinct d.institution) from Donation d")
     Long countDistinctByInstitution();
 
+    Donation findFirstById(Long id);
+
 }
