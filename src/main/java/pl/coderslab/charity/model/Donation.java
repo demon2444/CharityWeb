@@ -28,6 +28,7 @@ public class Donation {
 
     private String street;
     private String city;
+
     private Long zipCode;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")

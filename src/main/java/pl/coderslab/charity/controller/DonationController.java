@@ -38,7 +38,7 @@ public class DonationController {
         Donation donation = donationService.findDonationById(1l);
 
         model.addAttribute("donations", donation);
-        model.addAttribute("categories", categories);
+        model.addAttribute("cat", categories);
         return "form";
     }
 

@@ -92,14 +92,14 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form action="/confirm" method="post" modelAttribute="donations">
+      <form:form action="/confirm" method="post" modelAttribute="donations">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
-                <c:forEach items="${categories}" var="c">
+                <c:forEach items="${cat}" var="c">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="checkbox" name="categories" value="${c.id}"/>
+                            <input type="checkbox" name="categories" value="clothes-useless"/>
                             <span class="checkbox"></span>
                             <span class="description">${c.name}</span>
                         </label>
