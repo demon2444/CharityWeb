@@ -92,7 +92,7 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-      <form:form action="/confirm" method="post" modelAttribute="donations">
+        <form:form action="/confirm" method="post" modelAttribute="donations">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
@@ -149,7 +149,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <input type="number" name="bags" step="1" min="1"/>
+                        <form:input type="number" path="quantity" name="quantity" step="1" min="1"/>
                     </label>
                 </div>
 
@@ -163,39 +163,38 @@
             <!-- STEP 4 -->
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="radio" name="organization" value="old"/>
-                        <span class="checkbox radio"></span>
-                        <span class="description">
-                  <div class="title">Fundacja “Bez domu”</div>
+                <c:forEach items="${institutions}" var="ins">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <input type="radio" name="organization" value="old"/>
+                            <span class="checkbox radio"></span>
+                            <span class="description">
+                  <div class="title">${ins.name}</div>
                   <div class="subtitle">
-                    Cel i misja: Pomoc dla osób nie posiadających miejsca
-                    zamieszkania
+                    Cel i misja: ${ins.description}
                   </div>
                 </span>
-                    </label>
-                </div>
+                        </label>
+                    </div>
+                </c:forEach>
+                    <%--<div class="form-group form-group--checkbox">
+                        <label>
+                            <input type="radio" name="organization" value="old"/>
+                            <span class="checkbox radio"></span>
+                            <span class="description">
+                      <div class="title">Fundacja “Dla dzieci"</div>
+                      <div class="subtitle">
+                        Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji
+                        życiowej.
+                      </div>
+                    </span>
+                        </label>
+                    </div>--%>
 
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="radio" name="organization" value="old"/>
-                        <span class="checkbox radio"></span>
-                        <span class="description">
-                  <div class="title">Fundacja “Dla dzieci"</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji
-                    życiowej.
-                  </div>
-                </span>
-                    </label>
-                </div>
-
-                <div class="form-group form-group--buttons">
-                    <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="button" class="btn next-step">Dalej</button>
-                </div>
+                    <div class="form-group form-group--buttons">
+                        <button type="button" class="btn prev-step">Wstecz</button>
+                        <button type="button" class="btn next-step">Dalej</button>
+                    </div>
             </div>
 
             <!-- STEP 5 -->
@@ -206,11 +205,11 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="address"/> </label>
+                            <label> Ulica <form:input path="street" type="text" name="street"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <input type="text" name="city"/> </label>
+                            <label> Miasto <form:input path="city" type="text" name="city"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">

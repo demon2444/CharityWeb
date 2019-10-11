@@ -34,4 +34,8 @@ public class InstitutionService {
         return institutionRepository.findAllSecondHalf();
     }
 
+    public List<Institution> findAll(){
+        return institutionRepository.findAll();
+    }
+
 }
