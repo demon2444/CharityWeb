@@ -36,6 +36,10 @@ public class Donation {
     private Time pickUpTime;
     private String pickUpComment;
 
+    private Long phone;
+    private String more_info;
+
+
     public Donation() {
     }
 
@@ -122,5 +126,21 @@ public class Donation {
 
     public void setPickUpComment(String pickUpComment) {
         this.pickUpComment = pickUpComment;
+    }
+
+    public Long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Long phone) {
+        this.phone = phone;
+    }
+
+    public String getMore_info() {
+        return more_info;
+    }
+
+    public void setMore_info(String more_info) {
+        this.more_info = more_info;
     }
 }

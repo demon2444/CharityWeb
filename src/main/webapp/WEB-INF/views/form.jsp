@@ -220,7 +220,7 @@
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <form:input path="" type="phone" name="phone"/>
+                                Numer telefonu <form:input path="phone" type="phone" name="phone"/>
                             </label>
                         </div>
                     </div>
@@ -232,13 +232,13 @@
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="time" value="15:00"/> </label>
+                            <label> Godzina <form:input path="pickUpTime" name="time" value="15:00"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <textarea name="more_info" rows="5"></textarea>
+                                <form:textarea path="more_info" name="more_info" rows="5"></form:textarea>
                             </label>
                         </div>
                     </div>
@@ -259,9 +259,7 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
-                                >
+                                <span class="summary--text">${donations.quantity} worki ${donations.pickUpComment}</span>
                             </li>
 
                             <li>
