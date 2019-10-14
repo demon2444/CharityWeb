@@ -3,8 +3,9 @@ package pl.coderslab.charity.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Time;
+
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -33,7 +34,8 @@ public class Donation {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
-    private Time pickUpTime;
+    @DateTimeFormat(pattern = "hh:mm:ss")
+    private LocalDate pickUpTime;
     private String pickUpComment;
 
     private Long phone;
@@ -112,11 +114,11 @@ public class Donation {
         this.pickUpDate = pickUpDate;
     }
 
-    public Time getPickUpTime() {
+    public LocalDate getPickUpTime() {
         return pickUpTime;
     }
 
-    public void setPickUpTime(Time pickUpTime) {
+    public void setPickUpTime(LocalDate pickUpTime) {
         this.pickUpTime = pickUpTime;
     }
 
