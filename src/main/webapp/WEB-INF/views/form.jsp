@@ -166,7 +166,7 @@
                 <c:forEach items="${institutions}" var="ins">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="radio" name="organization" value="old"/>
+                            <input type="radio" name="institution" value="${ins.id}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                   <div class="title">${ins.name}</div>
@@ -228,17 +228,17 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input path="pickUpDate" type="date" name="data"/> </label>
+                            <label> Data <form:input path="pickUpDate" type="date" name="pickUpDate"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input path="pickUpTime" name="time" value="15:00"/> </label>
+                            <label> Godzina <form:input path="pickUpTime" type="time" name="pickUpTime"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="more_info" name="more_info" rows="5"></form:textarea>
+                                <form:textarea path="pickUpComment" name="pickUpComment" rows="5"></form:textarea>
                             </label>
                         </div>
                     </div>

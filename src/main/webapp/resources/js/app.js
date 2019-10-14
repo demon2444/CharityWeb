@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-console.log(1)
+
     /**
      * Form Select
      */
@@ -152,6 +152,8 @@ console.log(1)
             this.$step.innerText = this.currentStep;
             console.log(1);
             document.getElementById("q").innerHTML = document.querySelector("#quantity").value;
+            console.log(2);
+
 
             // TODO: Validation
 
