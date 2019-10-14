@@ -92,14 +92,14 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form action="/confirm" method="post" modelAttribute="donations">
+        <form:form action="/form/confirm" method="post" modelAttribute="donations" name="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
                 <c:forEach items="${cat}" var="c">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="checkbox" name="categories" value="clothes-useless"/>
+                            <input type="checkbox" name="categories" value="${c.id}">
                             <span class="checkbox"></span>
                             <span class="description">${c.name}</span>
                         </label>
@@ -149,7 +149,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input type="number" path="quantity" name="quantity" step="1" min="1"/>
+                        <form:input type="number" path="quantity" name="quantity" id="quantity" step="1" min="1"/>
                     </label>
                 </div>
 
@@ -259,7 +259,7 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text">${donations.quantity} worki ${donations.pickUpComment}</span>
+                                <span class="summary--text" id="q"> </span>
                             </li>
 
                             <li>

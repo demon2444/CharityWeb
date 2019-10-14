@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,7 +37,7 @@ public class DonationController {
     @GetMapping("")
     public String form(Model model) {
         List<Category> categories = categoryService.findAllcategories();
-        Donation donation = donationService.findDonationById(1l);
+        Donation donation = new Donation();
         List<Institution> institutions = institutionService.findAll();
 
 
@@ -48,7 +49,15 @@ public class DonationController {
 
     @PostMapping("/confirm")
     public String confirm(@ModelAttribute @Valid Donation donation, BindingResult result) {
-        return "from-confirmation";
+        List<ObjectError> erro = result.getAllErrors();
+        if(result.hasErrors()){
+            System.err.println(erro);
+            return "form";
+        }
+        else {
+            donationService.donationSave(donation);
+            return "from-confirmation";
+        }
     }
     //todo na button w js
     //todo jest widok w załączeniach, formularz w jednej stronie przekazywanie wszystkiego za pomocą jednego formularza podzielonego na części

@@ -17,13 +17,13 @@ public class Donation {
     private Long id;
     private Long quantity; //(liczba worków)
 
-    @ManyToMany(mappedBy = "donations")
+    @ManyToMany(mappedBy = "donations", fetch = FetchType.EAGER)
     private List<Category> categories; //(lista obiektów typu Category) , pamiętaj o odpowiedniej adnotacji
 
     //todo dodać adnotacje w institution do darów
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Institution institution; // (obiekt typu Institution), pamiętaj o odpowiedniej adnotacji.
 
     private String street;

@@ -34,7 +34,8 @@ public class HomeController {
         List<Institution> institutionsFirst = institutionService.findAllFirstHalf();
         List<Institution> institutionsSecond = institutionService.findAllSecondHalf();
 
-        User user = null;
+        User user = new User();
+        user.setId(null);
         model.addAttribute("user", user);
 
         Long quantitySum = donationService.sumQuantity();

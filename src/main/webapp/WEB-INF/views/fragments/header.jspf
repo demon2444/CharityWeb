@@ -19,13 +19,15 @@
 
 <header class="header--main-page">
     <nav class="container container--70">
-        <c:if test="${empty user.id} "></c:if>
+        <ul>
+
+        <c:if test="${empty user.id} ">
             <ul class="nav--actions">
                 <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>
                 <li><a href="#" class="btn btn--small btn--highlighted">Załóż konto</a></li>
             </ul>
-
-        <c:if test="${not empty user.id}">
+        </c:if>
+        <c:if test="${not empty user.id }">
         <ul class="nav--actions">
             <li class="logged-user">
                 Witaj Agata
@@ -40,7 +42,7 @@
         </c:if>
 
 
-        <ul>
+
             <li><a href="#" class="btn btn--without-border active">Start</a></li>
             <li><a href="#" class="btn btn--without-border">O co chodzi?</a></li>
             <li><a href="#" class="btn btn--without-border">O nas</a></li>

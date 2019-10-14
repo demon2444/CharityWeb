@@ -39,6 +39,8 @@ public class DonationService {
         return donationRepository.findFirstById(id);
     }
 
-
+    public void donationSave(Donation donation) {
+        donationRepository.save(donation);
+    }
 
 }
