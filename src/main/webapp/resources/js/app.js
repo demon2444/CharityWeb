@@ -153,11 +153,18 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(1);
             let quantity =  document.querySelector("#quantity").value;
             let category = document.querySelector(".categ").value
+            let pic = document.querySelector("#pic");
+            if(pic === null) {
+                pic = "Brak uwag";
+            }
             document.getElementById("q").innerHTML = quantity + " " + category ;
-            document.getElementById("q").innerHTML = document.querySelector("#street");
-            document.getElementById("q").innerHTML = document.querySelector("")
-            document.getElementById("q").innerHTML = document.querySelector("")
-            document.getElementById("q").innerHTML = document.querySelector("")
+            document.getElementById("st").innerHTML = document.querySelector("#street");
+            document.getElementById("ci").innerHTML = document.querySelector("#city")
+            document.getElementById("post").innerHTML = document.querySelector("#postc")
+            document.getElementById("number").innerHTML = document.querySelector("#phone")
+            document.getElementById("dat").innerHTML = document.querySelector("#date")
+            document.getElementById("time").innerHTML = document.querySelector("#time")
+            document.getElementById("pic").innerHTML = pic;
 
             console.log(2);
 

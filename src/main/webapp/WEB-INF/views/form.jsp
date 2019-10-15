@@ -214,7 +214,7 @@
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode" type="text" name="postcode" id="postcode"/>
+                                Kod pocztowy <form:input path="zipCode" type="text" name="postcode" id="postc"/>
                             </label>
                         </div>
 
@@ -228,7 +228,7 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input path="pickUpDate" type="date" name="pickUpDate" id="date"/> </label>
+                            <label> Data <form:input type="date" path="pickUpDate" name="pickUpDate" value="2019-10-30" id="date"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -238,7 +238,7 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="pickUpComment" name="pickUpComment" rows="5"></form:textarea>
+                                <form:textarea path="pickUpComment" name="pickUpComment" rows="5" id="pick"></form:textarea>
                             </label>
                         </div>
                     </div>
@@ -274,18 +274,18 @@
                             <h4>Adres odbioru:</h4>
                             <ul>
                                 <li id="st">Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="ci">Warszawa</li>
+                                <li id="post">99-098</li>
+                                <li id="number">123 456 789</li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="dat">13/12/2018</li>
+                                <li id="tim">15:40</li>
+                                <li id="pic">Brak uwag</li>
                             </ul>
                         </div>
                     </div>
