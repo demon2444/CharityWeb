@@ -151,7 +151,14 @@ document.addEventListener("DOMContentLoaded", function () {
         updateForm() {
             this.$step.innerText = this.currentStep;
             console.log(1);
-            document.getElementById("q").innerHTML = document.querySelector("#quantity").value;
+            let quantity =  document.querySelector("#quantity").value;
+            let category = document.querySelector(".categ").value
+            document.getElementById("q").innerHTML = quantity + " " + category ;
+            document.getElementById("q").innerHTML = document.querySelector("#street");
+            document.getElementById("q").innerHTML = document.querySelector("")
+            document.getElementById("q").innerHTML = document.querySelector("")
+            document.getElementById("q").innerHTML = document.querySelector("")
+
             console.log(2);
 
 
