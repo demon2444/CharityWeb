@@ -57,7 +57,7 @@ public class DonationController {
         }
         else {
             donationService.donationSave(donation);
-            return "from-confirmation";
+            return "form-confirmation";
         }
     }
     //todo na button w js
