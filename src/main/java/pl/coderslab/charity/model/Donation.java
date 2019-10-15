@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -34,8 +35,10 @@ public class Donation {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
-    @DateTimeFormat(pattern = "hh:mm:ss")
-    private LocalDate pickUpTime;
+    @Transient
+    private String time;
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime pickUpTime;
     private String pickUpComment;
 
     private Long phone;
@@ -114,11 +117,11 @@ public class Donation {
         this.pickUpDate = pickUpDate;
     }
 
-    public LocalDate getPickUpTime() {
+    public LocalTime getPickUpTime() {
         return pickUpTime;
     }
 
-    public void setPickUpTime(LocalDate pickUpTime) {
+    public void setPickUpTime(LocalTime pickUpTime) {
         this.pickUpTime = pickUpTime;
     }
 
@@ -138,5 +141,11 @@ public class Donation {
         this.phone = phone;
     }
 
+    public String getTime() {
+        return time;
+    }
 
+    public void setTime(String time) {
+        this.time = time;
+    }
 }

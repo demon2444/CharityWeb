@@ -232,7 +232,7 @@
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input path="pickUpTime" type="time" name="pickUpTime"/> </label>
+                            <label> Godzina <form:input type="time" path="pickUpTime"    /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">

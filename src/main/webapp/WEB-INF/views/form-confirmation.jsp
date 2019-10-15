@@ -1,3 +1,9 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -38,7 +44,10 @@
       </div>
     </header>
 
-    <footer>
+
+    <%@include file="fragments/footer.jspf" %>
+
+    <%--<footer>
       <div class="contact">
         <h2>Skontaktuj się z nami</h2>
         <h3>Formularz kontaktowy</h3>
@@ -72,7 +81,7 @@
           /></a>
         </div>
       </div>
-    </footer>
+    </footer>--%>
 
     <script src="js/app.js"></script>
   </body>

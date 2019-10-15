@@ -49,6 +49,7 @@ public class DonationController {
 
     @PostMapping("/confirm")
     public String confirm(@ModelAttribute @Valid Donation donation, BindingResult result) {
+      //  donation.setPickUpTime(donationService.setTimeeTosave(donation.getTime()));
         List<ObjectError> erro = result.getAllErrors();
         if(result.hasErrors()){
             System.err.println(erro);

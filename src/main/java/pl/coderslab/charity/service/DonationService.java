@@ -5,9 +5,16 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.repository.DonationRepository;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
 @Service
 @Transactional
 public class DonationService {
+
+    private static final SimpleDateFormat SDF_TIME = new SimpleDateFormat("HH:mm:ss");
 
     private DonationRepository donationRepository;
 
@@ -42,5 +49,16 @@ public class DonationService {
     public void donationSave(Donation donation) {
         donationRepository.save(donation);
     }
+
+    public Date setTimeeTosave(String time) {
+        Date dateTime = new Date();
+        try {
+            dateTime = SDF_TIME.parse(time);
+        } catch ( ParseException ex) {
+
+        }
+        return dateTime;
+    }
+
 
 }
