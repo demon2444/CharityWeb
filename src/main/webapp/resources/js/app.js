@@ -153,13 +153,26 @@ document.addEventListener("DOMContentLoaded", function () {
             this.$step.innerText = this.currentStep;
             console.log(1);
             let quantity =  document.querySelector("#quantity").value;
-            let category = document.querySelector(".categ")
+
+
+                let checks = document.getElementsByClassName('categ')
+                let str = '';
+                for (let i = 0; i < checks.length; i++) {
+                    if(checks[i].checked === true) {
+                        str += checks[i].dataset.name + ' ';
+                    }
+                }
+
+
+            //let category = document.querySelector(".categ")
+
+
 
             let pic = document.querySelector("#pick").value;
             if(pic.length === 0) {
                 pic = "Brak uwag";
             }
-            document.getElementById("q").innerHTML = quantity + " " + category.dataset.name ;
+            document.getElementById("q").innerHTML = quantity + " " + str ;
             document.getElementById("st").innerHTML = document.querySelector("#street").value;
             document.getElementById("ci").innerHTML = document.querySelector("#city").value;
             document.getElementById("post").innerHTML = document.querySelector("#postc").value;
