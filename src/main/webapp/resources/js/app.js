@@ -151,6 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateForm() {
             //todo datasetem pobrać
             this.$step.innerText = this.currentStep;
+
             console.log(1);
             let quantity =  document.querySelector("#quantity").value;
 
@@ -164,7 +165,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-            //let category = document.querySelector(".categ")
+            let rad = document.getElementsByName('institution')
+            let fundation = '';
+            for (let i = 0; i < rad.length; i++) {
+                if(rad[i].checked === true) {
+                    fundation += rad[i].dataset.nam + ' ';
+                }
+            }
+
+
 
 
 
@@ -172,6 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if(pic.length === 0) {
                 pic = "Brak uwag";
             }
+            document.getElementById("fund").innerHTML = "Dla fundacji " + fundation;
             document.getElementById("q").innerHTML = quantity + " " + str ;
             document.getElementById("st").innerHTML = document.querySelector("#street").value;
             document.getElementById("ci").innerHTML = document.querySelector("#city").value;
