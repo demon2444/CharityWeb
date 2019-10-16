@@ -153,8 +153,8 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(1);
             let quantity =  document.querySelector("#quantity").value;
             let category = document.querySelector(".categ").value
-            let pic = document.querySelector("#pic").value;
-            if(pic === undefined) {
+            let pic = document.querySelector("#pick").value;
+            if(pic.length === 0) {
                 pic = "Brak uwag";
             }
             document.getElementById("q").innerHTML = quantity + " " + category ;
