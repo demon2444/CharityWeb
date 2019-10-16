@@ -153,17 +153,17 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(1);
             let quantity =  document.querySelector("#quantity").value;
             let category = document.querySelector(".categ").value
-            let pic = document.querySelector("#pic");
-            if(pic === null) {
+            let pic = document.querySelector("#pic").value;
+            if(pic === undefined) {
                 pic = "Brak uwag";
             }
             document.getElementById("q").innerHTML = quantity + " " + category ;
-            document.getElementById("st").innerHTML = document.querySelector("#street");
-            document.getElementById("ci").innerHTML = document.querySelector("#city")
-            document.getElementById("post").innerHTML = document.querySelector("#postc")
-            document.getElementById("number").innerHTML = document.querySelector("#phone")
-            document.getElementById("dat").innerHTML = document.querySelector("#date")
-            document.getElementById("time").innerHTML = document.querySelector("#time")
+            document.getElementById("st").innerHTML = document.querySelector("#street").value;
+            document.getElementById("ci").innerHTML = document.querySelector("#city").value;
+            document.getElementById("post").innerHTML = document.querySelector("#postc").value;
+            document.getElementById("number").innerHTML = document.querySelector("#phone").value;
+            document.getElementById("dat").innerHTML = document.querySelector("#date").value;
+            document.getElementById("tim").innerHTML = document.querySelector("#time").value;
             document.getElementById("pic").innerHTML = pic;
 
             console.log(2);
