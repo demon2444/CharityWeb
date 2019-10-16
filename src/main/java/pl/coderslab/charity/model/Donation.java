@@ -19,7 +19,7 @@ public class Donation {
     private Long id;
     private Long quantity; //(liczba worków)
 
-    @ManyToMany(mappedBy = "donations", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Category> categories; //(lista obiektów typu Category) , pamiętaj o odpowiedniej adnotacji
 
     //todo dodać adnotacje w institution do darów

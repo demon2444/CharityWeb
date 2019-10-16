@@ -1,3 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -8,7 +13,9 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header>
+  <%@include file="fragments/header.jspf" %>
+
+    <%--<header>
       <nav class="container container--70">
         <ul class="nav--actions">
           <li><a href="#">Zaloguj</a></li>
@@ -23,7 +30,7 @@
           <li><a href="index.html#contact" class="btn btn--without-border">Kontakt</a></li>
         </ul>
       </nav>
-    </header>
+    </header>--%>
 
     <section class="login-page">
       <h2>Zaloguj się</h2>
@@ -43,7 +50,9 @@
       </form>
     </section>
 
-    <footer>
+  <%@include file="fragments/footer.jspf"%>
+
+    <%--<footer>
         <div class="contact">
           <h2>Skontaktuj się z nami</h2>
           <h3>Formularz kontaktowy</h3>
@@ -69,6 +78,6 @@
             <a href="#" class="btn btn--small"><img src="images/icon-instagram.svg"/></a>
           </div>
         </div>
-      </footer>
+      </footer>--%>
   </body>
 </html>

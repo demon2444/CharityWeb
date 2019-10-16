@@ -149,15 +149,17 @@ document.addEventListener("DOMContentLoaded", function () {
          * Show next or previous section etc.
          */
         updateForm() {
+            //todo datasetem pobrać
             this.$step.innerText = this.currentStep;
             console.log(1);
             let quantity =  document.querySelector("#quantity").value;
-            let category = document.querySelector(".categ").value
+            let category = document.querySelector(".categ")
+
             let pic = document.querySelector("#pick").value;
             if(pic.length === 0) {
                 pic = "Brak uwag";
             }
-            document.getElementById("q").innerHTML = quantity + " " + category ;
+            document.getElementById("q").innerHTML = quantity + " " + category.dataset.name ;
             document.getElementById("st").innerHTML = document.querySelector("#street").value;
             document.getElementById("ci").innerHTML = document.querySelector("#city").value;
             document.getElementById("post").innerHTML = document.querySelector("#postc").value;
