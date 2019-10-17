@@ -18,6 +18,8 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
     private String password;
+    @Transient
+    private String password2;
     private boolean enabled;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -69,6 +71,14 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getPassword2() {
+        return password2;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
     }
 
     @Override
