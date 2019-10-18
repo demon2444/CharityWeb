@@ -2,6 +2,7 @@ package pl.coderslab.charity.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.List;
 import java.util.Set;
 
 //todo zrobić repozytoria i service do usera poustawiać klucze do tabel
@@ -24,6 +25,9 @@ public class User {
     @Transient
     private String password2;
     private boolean enabled;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Donation> donations;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))

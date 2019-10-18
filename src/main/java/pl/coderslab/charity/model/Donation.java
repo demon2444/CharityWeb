@@ -43,6 +43,9 @@ public class Donation {
 
     private Long phone;
 
+    @ManyToOne
+    private User user;
+
 
 
     public Donation() {
