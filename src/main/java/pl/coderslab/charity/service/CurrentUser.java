@@ -11,6 +11,7 @@ public class CurrentUser extends User {
                        Collection<? extends GrantedAuthority> authorities,
                        pl.coderslab.charity.model.User user) {
         super(username, password, authorities);
+
         this.user = user;
     }
     public pl.coderslab.charity.model.User getUser() {return user;}

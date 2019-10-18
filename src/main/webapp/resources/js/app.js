@@ -168,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let rad = document.getElementsByName('institution')
             let fundation = '';
             for (let i = 0; i < rad.length; i++) {
+                console.log(rad[i])
                 if(rad[i].checked === true) {
                     fundation += rad[i].dataset.nam + ' ';
                 }

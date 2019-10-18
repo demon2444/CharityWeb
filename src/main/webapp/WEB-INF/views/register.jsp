@@ -6,38 +6,47 @@
 
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-  <%@include file="fragments/header.jspf" %>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<%@include file="fragments/header.jspf" %>
 
 
-    <section class="login-page">
-      <h2>Załóż konto</h2>
-      <form:form modelAttribute="user" method="post" >
+<section class="login-page" id="reg">
+    <h2>Załóż konto</h2>
+    <form:form modelAttribute="user" method="post">
+
         <div class="form-group">
-          <form:input path="username" type="email" name="email" placeholder="Email" />
+            <form:input path="firstname" type="text" name="firstname" placeholder="Imię"/>
         </div>
         <div class="form-group">
-          <form:input path="password" type="password" name="password" placeholder="Hasło" />
+            <form:input path="secondname" type="text" name="secondname" placeholder="Nazwisko"/>
+        </div>
+
+        <div class="form-group">
+            <form:input path="username" type="email" name="email" placeholder="Email"/>
+        </div>
+
+        <div class="form-group">
+            <form:input path="password" type="password" name="password" placeholder="Hasło"/>
         </div>
         <div class="form-group">
-          <form:input path="password2" type="password" name="password2" placeholder="Powtórz hasło" />
+            <form:input path="password2" type="password" name="password2" placeholder="Powtórz hasło"/>
         </div>
 
         <div class="form-group form-group--buttons">
-          <a href="/user/login" class="btn btn--without-border">Zaloguj się</a>
-          <button class="btn" type="submit">Załóż konto</button>
+            <a href="/user/login" class="btn btn--without-border">Zaloguj się</a>
+            <button class="btn" type="submit">Załóż konto</button>
         </div>
-      </form:form>
-    </section>
-  <%@include file="fragments/footer.jspf" %>
+    </form:form>
+</section>
+<%@include file="fragments/footer.jspf" %>
 
 
-  </body>
+</body>
 </html>

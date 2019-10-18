@@ -17,6 +17,9 @@ public class User {
     @Email
     @Column(nullable = false, unique = true)
     private String username;
+    private String firstname;
+    private String secondname;
+
     private String password;
     @Transient
     private String password2;
@@ -79,6 +82,23 @@ public class User {
 
     public void setPassword2(String password2) {
         this.password2 = password2;
+    }
+
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getSecondname() {
+        return secondname;
+    }
+
+    public void setSecondname(String secondname) {
+        this.secondname = secondname;
     }
 
     @Override

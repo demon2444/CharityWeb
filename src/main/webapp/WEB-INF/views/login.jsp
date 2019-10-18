@@ -33,7 +33,7 @@
       </nav>
     </header>--%>
 
-    <section class="login-page">
+    <section class="login-page" id="log">
       <h2>Zaloguj się</h2>
       <form:form method="post" modelAttribute="user">
         <div class="form-group">

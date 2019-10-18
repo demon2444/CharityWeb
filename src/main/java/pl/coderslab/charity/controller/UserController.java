@@ -11,6 +11,7 @@ import pl.coderslab.charity.model.Role;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.CurrentUser;
 import pl.coderslab.charity.service.UserService;
+import pl.coderslab.charity.service.UserServiceImpl;
 
 import javax.validation.Valid;
 import java.util.HashSet;
@@ -48,12 +49,14 @@ public class UserController {
     public String register(@ModelAttribute @Valid User user, BindingResult result) {
     if(user.getPassword().equals(user.getPassword2()) && !result.hasErrors()) {
         userService.saveUser(user);
-        return "login";
+        return "redirect:/login#log";
     } else {
 
         return "register";
     }
     }
+
+    //todo stworzyc role admin z pomocą save
 
 
 

@@ -23,8 +23,8 @@
 
             <sec:authorize access="isAnonymous()">
             <ul class="nav--actions">
-                <li><a href="/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
-                <li><a href="/user/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+                <li><a href="/login#log" class="btn btn--small btn--without-border">Zaloguj</a></li>
+                <li><a href="/user/register#reg" class="btn btn--small btn--highlighted">Załóż konto</a></li>
             </ul>
             </sec:authorize>
 
@@ -32,7 +32,7 @@
             <sec:authorize access="isAuthenticated()">
         <ul class="nav--actions">
             <li class="logged-user">
-                Witaj <sec:authentication property="principal.username"></sec:authentication>
+                Witaj <sec:authentication property="principal.user"></sec:authentication>
                 <ul class="dropdown">
                     <li><a href="#">Profil</a></li>
                     <li><a href="#">Ustawienia</a></li>
