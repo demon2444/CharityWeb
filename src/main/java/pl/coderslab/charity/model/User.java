@@ -26,8 +26,7 @@ public class User {
     private String password2;
     private boolean enabled;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Donation> donations;
+
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -104,6 +103,9 @@ public class User {
     public void setSecondname(String secondname) {
         this.secondname = secondname;
     }
+
+
+
 
     @Override
     public String toString() {

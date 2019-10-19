@@ -8,9 +8,10 @@ import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.RoleRepository;
 import pl.coderslab.charity.repository.UserRepository;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -50,6 +51,21 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    public void updateUser(User user) {
 
+        user.setEnabled(true);
+        Role userRole = roleRepository.findByName("ROLE_USER");
+        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        userRepository.save(user);
+    }
+
+    /*public User getUser() {
+        Authentication authentication = getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+
+
+        return findByUsername(currentPrincipalName);
+    }
+*/
 
 }

@@ -34,7 +34,7 @@
             <li class="logged-user">
                 Witaj <sec:authentication property="principal.username"></sec:authentication>
                 <ul class="dropdown">
-                    <li><a href="#">Profil</a></li>
+                    <li><a href="/user/profile#update">Profil</a></li>
                     <li><a href="#">Ustawienia</a></li>
                     <li><a href="#">Moje zbiórki</a></li>
                     <li><a href="/logout">Wyloguj</a></li>

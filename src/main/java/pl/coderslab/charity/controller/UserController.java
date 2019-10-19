@@ -3,6 +3,7 @@ package pl.coderslab.charity.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,14 +23,13 @@ import java.util.Set;
 public class UserController {
 
     private final UserService userService;
+    private PasswordEncoder passwordEncoder;
 
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
-
-
-
 
     @GetMapping("/admin")
     @ResponseBody
@@ -58,6 +58,27 @@ public class UserController {
 
     //todo stworzyc role admin z pomocą save
 
+    @GetMapping("/profile")
+    public String profile(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
+        User user = currentUser.getUser();
 
+        model.addAttribute("user", user);
+        return "profile";
+    }
+    @PostMapping("/profile")
+    public String profile(@ModelAttribute @Valid User user, @AuthenticationPrincipal CurrentUser currentUser, BindingResult result) {
+        if(user.getPassword().equals(user.getPassword2()) && !result.hasErrors()) {
+            if(user.getPassword().equals("")){
+                String passSet = currentUser.getPassword();
+                user.setPassword(passSet);
+                userService.updateUser(user);
+            } else {
+                userService.saveUser(user);
+            }
+            return "redirect:/";
+        } else {
 
+            return "register";
+        }
+    }
 }
