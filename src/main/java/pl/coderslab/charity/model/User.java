@@ -26,6 +26,9 @@ public class User {
     private String password2;
     private boolean enabled;
 
+    @OneToMany(mappedBy = "user")
+    private List<Donation> donation;
+
 
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -105,7 +108,13 @@ public class User {
     }
 
 
+    public List<Donation> getDonation() {
+        return donation;
+    }
 
+    public void setDonation(List<Donation> donation) {
+        this.donation = donation;
+    }
 
     @Override
     public String toString() {
