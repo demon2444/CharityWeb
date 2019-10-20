@@ -1,6 +1,7 @@
 package pl.coderslab.charity.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
+import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.CategoryService;
+import pl.coderslab.charity.service.CurrentUser;
 import pl.coderslab.charity.service.DonationService;
 import pl.coderslab.charity.service.InstitutionService;
 
@@ -26,6 +29,7 @@ public class DonationController {
     private CategoryService categoryService;
     private DonationService donationService;
     private InstitutionService institutionService;
+
 
     @Autowired
     public DonationController(CategoryService categoryService, DonationService donationService, InstitutionService institutionService) {
@@ -48,8 +52,10 @@ public class DonationController {
     }
 
     @PostMapping("/confirm")
-    public String confirm(@ModelAttribute @Valid Donation donation, BindingResult result) {
+    public String confirm(@ModelAttribute @Valid Donation donation, @AuthenticationPrincipal CurrentUser user, BindingResult result) {
       //donation.setCategories();
+        User userSave = user.getUser();
+        donation.setUser(userSave);
         List<ObjectError> erro = result.getAllErrors();
         if(result.hasErrors()){
             System.err.println(erro);
@@ -60,6 +66,13 @@ public class DonationController {
             return "form-confirmation";
         }
     }
+
+    @GetMapping("/profile")
+    public String profile(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
+
+        return "profile";
+    }
+
     //todo na button w js
     //todo jest widok w załączeniach, formularz w jednej stronie przekazywanie wszystkiego za pomocą jednego formularza podzielonego na części
     //

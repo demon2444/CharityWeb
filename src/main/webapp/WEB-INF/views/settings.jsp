@@ -17,7 +17,7 @@
 <%@include file="fragments/header.jspf" %>
 
 
-<%--<section class="login-page" id="reg">
+<section class="login-page" id="reg">
     <h2>Załóż konto</h2>
     <form:form modelAttribute="user" method="post" action="/user/profile">
 
@@ -45,29 +45,7 @@
             <button class="btn" type="submit">Zauktualizuj</button>
         </div>
     </form:form>
-</section>--%>
-
-<section class="stats">
-    <div class="container container--85">
-        <div class="stats--item">
-            <em>${quantitySum}</em>
-
-            <h3>Oddanych worków</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
-                tempora!</p>
-        </div>
-
-        <div class="stats--item">
-            <em>${donateInstitutions}</em>
-            <h3>Wspartych organizacji</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
-                quam.</p>
-        </div>
-
-    </div>
 </section>
-
-
 <%@include file="fragments/footer.jspf" %>
 
 
