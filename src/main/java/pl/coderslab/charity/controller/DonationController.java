@@ -106,7 +106,7 @@ public class DonationController {
         return "my-donations";
     }
 
-    @GetMapping("/time")
+    @GetMapping("/picked")
     public String pickedSorted(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
         Long id = currentUser.getUser().getId();
         List<Donation> donations = donationService.findAllSortedByIsPicked(id);

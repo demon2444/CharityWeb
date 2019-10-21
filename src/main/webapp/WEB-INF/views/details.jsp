@@ -72,7 +72,7 @@
             <thead class="thead-dark">
             <tr>
 
-                <th scope="col"><a href="/form/my" class="tablink">Id</a></th>
+                <th scope="col"><a href="/form/my" class="table-warning">Id</a></th>
                 <th scope="col">Ilość Worków</th>
                 <th scope="col">Ulica</th>
                 <th scope="col">Kod pocztowy</th>
@@ -82,8 +82,8 @@
                 <th scope="col">Data odbioru</th>
                 <th scope="col">Godzina odbioru</th>
                 <th scope="col">Uwagi dla kuriera</th>
-                <th scope="col"><a href="/form/picked" class="tablink">Odebrane</a></th>
-                <th scope="col"><a href="/form/time" class="tablink"> Potwierdzony odbiór</a></th>
+                <th scope="col"><a href="/form/picked" class="table-warning">Odebrane</a></th>
+                <th scope="col"><a href="/form/time" class="table-warning"> Potwierdzony odbiór</a></th>
                 <th scope="col">Potwierdź odbiór</th>
             </tr>
             </thead>
