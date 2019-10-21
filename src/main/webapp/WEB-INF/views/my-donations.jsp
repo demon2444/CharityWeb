@@ -80,6 +80,7 @@
                 <th scope="col">Godzina odbioru</th>
                 <th scope="col">Uwagi dla kuriera</th>
                 <th scope="col">Odebrane</th>
+                <th scope="col">Potwierdzony odbiór</th>
                 <th scope="col">Potwierdź odbiór</th>
             </tr>
             </thead>
@@ -102,7 +103,10 @@
                     <td><c:if test="${d.picked == true}">Tak</c:if>
                         <c:if test="${d.picked == false}">Nie</c:if>
                     </td>
+                    <td>${d.pickedOn}
 
+
+                    </td>
                     <td>
                         <a href="/form/done/${d.id}" class="btn btn-secondary btn-sm">Odebrane</a>
                     </td>
