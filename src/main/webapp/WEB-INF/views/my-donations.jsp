@@ -11,6 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
+
+    <script src="<c:url value="/webjars/jquery/3.0.0/jquery.min.js"/>"></script>
+    <script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"/>"></script>
+    <link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
@@ -49,7 +53,7 @@
 
 <section class="stats">
     <div class="container container--85">
-        <div class="stats--item">
+        <%--<div class="stats--item">
             <em>${bags}</em>
 
             <h3>Oddanych worków</h3>
@@ -57,19 +61,59 @@
                 tempora!</p>
         </div>
 
-        <div class="stats--item">
+
             <em>${donateInstitutions}</em>
             <h3>Wspartych organizacji</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
-                quam.</p>
-        </div>
+                quam.</p>--%>
 
+<div class="stats--item">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Ilość Worków</th>
+                <th scope="col">Ulica</th>
+                <th scope="col">Kod pocztowy</th>
+                <th scope="col">Miasto</th>
+                <th scope="col">Telefon</th>
+                <th scope="col">Data odbioru</th>
+                <th scope="col">Godzina odbioru</th>
+                <th scope="col">Uwagi dla kuriera</th>
+                <th scope="col">Odebrane</th>
+                <th scope="col">Potwierdź odbiór</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${donations}" var="d">
+
+
+
+                <tr class="table-info">
+
+
+                    <td>${d.quantity}</td>
+                    <td>${d.street}</td>
+                    <td>${d.zipCode}</td>
+                    <td>${d.city}</td>
+                    <td>${d.phone}</td>
+                    <td>${d.pickUpDate}</td>
+                    <td>${d.pickUpTime}</td>
+                    <td>${d.pickUpComment}</td>
+                    <td><c:if test="${d.picked == true}">Tak</c:if>
+                        <c:if test="${d.picked == false}">Nie</c:if>
+                    </td>
+
+                    <td>
+                        <a href="/form/done/${d.id}" class="btn btn-secondary btn-sm">Odebrane</a>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+
+        </table>
+
+     </div>
     </div>
-
-
-
-
-
 
 
 </section>

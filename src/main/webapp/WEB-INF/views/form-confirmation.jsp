@@ -23,18 +23,18 @@
             <ul class="dropdown">
               <li><a href="/form/profile#show">Profil</a></li>
               <li><a href="/user/settings#update">Ustawienia</a></li>
-              <li><a href="#">Moje zbiórki</a></li>
+              <li><a href="/form/my">Moje zbiórki</a></li>
               <li><a href="/logout">Wyloguj</a></li>
             </ul>
           </li>
         </ul>
 
         <ul>
-          <li><a href="index.html" class="btn btn--without-border active">Start</a></li>
+          <li><a href="/form" class="btn btn--without-border active">Start</a></li>
           <li><a href="index.html#steps" class="btn btn--without-border">O co chodzi?</a></li>
           <li><a href="index.html#about-us" class="btn btn--without-border">O nas</a></li>
           <li><a href="index.html#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
-          <li><a href="index.html#contact" class="btn btn--without-border">Kontakt</a></li>
+          <li><a href="/index#contact" class="btn btn--without-border">Kontakt</a></li>
         </ul>
       </nav>
 

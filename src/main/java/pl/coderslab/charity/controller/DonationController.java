@@ -6,10 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
@@ -53,9 +50,9 @@ public class DonationController {
 
     @PostMapping("/confirm")
     public String confirm(@ModelAttribute @Valid Donation donation, @AuthenticationPrincipal CurrentUser user, BindingResult result) {
-      //donation.setCategories();
         User userSave = user.getUser();
         donation.setUser(userSave);
+        donation.setPicked(false);
         List<ObjectError> erro = result.getAllErrors();
         if(result.hasErrors()){
             System.err.println(erro);
@@ -69,11 +66,34 @@ public class DonationController {
 
     @GetMapping("/profile")
     public String profile(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
+        //List<Donation> donations = donationService.findAllOrderById();
+        Long userId = currentUser.getUser().getId();
+        Long countBags = donationService.countAllBags(userId);
+        model.addAttribute("bags", countBags);
+        //model.addAttribute("donations", donations);
 
         return "profile";
     }
 
-    //todo na button w js
-    //todo jest widok w załączeniach, formularz w jednej stronie przekazywanie wszystkiego za pomocą jednego formularza podzielonego na części
-    //
+
+    @GetMapping("/my")
+    public String myDonations(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
+        Long id = currentUser.getUser().getId();
+        List<Donation> donations = donationService.findAllOrderById(id);
+        model.addAttribute("donations", donations);
+        return "my-donations";
+    }
+
+    @GetMapping("/done/{id}")
+    public String pickedUp(@PathVariable Long id, @AuthenticationPrincipal CurrentUser currentUser, Model model) {
+        Donation donation = donationService.findDonationById(id);
+        donation.setPicked(true);
+        donation.setPickedOn();
+        donationService.donationSave(donation);
+        Long userId = currentUser.getUser().getId();
+        List<Donation> donations = donationService.findAllOrderById(userId);
+        model.addAttribute("donations", donations);
+        return "my-donations";
+    }
+
 }

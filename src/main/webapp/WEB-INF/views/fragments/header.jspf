@@ -36,7 +36,7 @@
                 <ul class="dropdown">
                     <li><a href="/form/profile#show">Profil</a></li>
                     <li><a href="/user/settings#update">Ustawienia</a></li>
-                    <li><a href="#">Moje zbiórki</a></li>
+                    <li><a href="/form/my">Moje zbiórki</a></li>
                     <li><a href="/logout">Wyloguj</a></li>
                 </ul>
             </li>
@@ -46,7 +46,7 @@
         <ul>
 
 
-            <li><a href="#" class="btn btn--without-border active">Start</a></li>
+            <li><a href="/form" class="btn btn--without-border active">Start</a></li>
             <li><a href="#" class="btn btn--without-border">O co chodzi?</a></li>
             <li><a href="#" class="btn btn--without-border">O nas</a></li>
             <li><a href="#" class="btn btn--without-border">Fundacje i organizacje</a></li>

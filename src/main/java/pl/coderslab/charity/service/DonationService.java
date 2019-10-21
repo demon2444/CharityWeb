@@ -1,5 +1,6 @@
 package pl.coderslab.charity.service;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.charity.model.Donation;
@@ -8,6 +9,7 @@ import pl.coderslab.charity.repository.DonationRepository;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -47,6 +49,7 @@ public class DonationService {
     }
 
     public void donationSave(Donation donation) {
+
         donationRepository.save(donation);
     }
 
@@ -60,5 +63,19 @@ public class DonationService {
         return dateTime;
     }
 
+    /*public List<Donation> findAllOrderByPicked() {
+        return donationRepository.findAll();
+    }*/
 
+    /*public List<Donation> findAllOrderByDate() {
+        return donationRepository.findAll();
+    }*/
+
+    public List<Donation> findAllOrderById(Long id) {
+        return donationRepository.findAllByOrderByIdAsc(id);
+    }
+
+    public Long countAllBags(Long id) {
+      return donationRepository.countAllQuantitByUserId(id);
+    }
 }

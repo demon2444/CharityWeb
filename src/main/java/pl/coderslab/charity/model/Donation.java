@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Donation {
     private Long id;
     private Long quantity; //(liczba worków)
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "donations", fetch = FetchType.EAGER)
     private List<Category> categories; //(lista obiektów typu Category) , pamiętaj o odpowiedniej adnotacji
 
     //todo dodać adnotacje w institution do darów
@@ -38,6 +39,11 @@ public class Donation {
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime pickUpTime;
     private String pickUpComment;
+
+    @Column(name = "picked_on")
+    private LocalDateTime pickedOn;
+
+    private boolean isPicked;
 
     private Long phone;
 
@@ -157,4 +163,28 @@ public class Donation {
     public void setUser(User user) {
         this.user = user;
     }
+
+
+    public LocalDateTime getPickedOn() {
+        return pickedOn;
+    }
+
+    public void setPickedOn() {
+        this.pickedOn = LocalDateTime.now();
+    }
+
+    public boolean isPicked() {
+        return isPicked;
+    }
+
+    public void setPicked(boolean picked) {
+        isPicked = picked;
+    }
+
+
+
+
+
+
+
 }

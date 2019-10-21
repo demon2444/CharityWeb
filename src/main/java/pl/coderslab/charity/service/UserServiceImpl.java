@@ -59,13 +59,5 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
-    /*public User getUser() {
-        Authentication authentication = getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-
-
-        return findByUsername(currentPrincipalName);
-    }
-*/
 
 }

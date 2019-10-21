@@ -15,9 +15,8 @@ public class Category {
     @Column(unique = true)
     private String name;
 
-    /*@ManyToMany
+    @ManyToMany
     private List<Donation> donations;
-*/
 
 
 
@@ -34,13 +33,13 @@ public class Category {
         this.donations = donations;
     }*/
 
-    /*public List<Donation> getDonations() {
+    public List<Donation> getDonations() {
         return donations;
     }
 
     public void setDonations(List<Donation> donations) {
         this.donations = donations;
-    }*/
+    }
 
     public Long getId() {
         return id;
