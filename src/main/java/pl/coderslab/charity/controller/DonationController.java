@@ -69,7 +69,9 @@ public class DonationController {
         //List<Donation> donations = donationService.findAllOrderById();
         Long userId = currentUser.getUser().getId();
         Long countBags = donationService.countAllBags(userId);
+        Long countInstitutions = donationService.countInstitutions(userId);
         model.addAttribute("bags", countBags);
+        model.addAttribute("institutions", countInstitutions);
         //model.addAttribute("donations", donations);
 
         return "profile";
@@ -96,4 +98,11 @@ public class DonationController {
         return "my-donations";
     }
 
+    @GetMapping("/time")
+    public String timeSorted(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
+        Long id = currentUser.getUser().getId();
+        List<Donation> donations = donationService.findAllOrderByPickedOn(id);
+        model.addAttribute("donations", donations);
+        return "my-donations";
+    }
 }

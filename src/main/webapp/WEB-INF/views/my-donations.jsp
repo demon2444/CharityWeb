@@ -68,9 +68,11 @@
                 quam.</p>--%>
 
 <div class="stats--item">
-        <table class="table table-hover">
+        <table class="table table-hover" id="tab">
             <thead class="thead-dark">
             <tr>
+
+                <th scope="col"><a href="/form/my" class="table-warning">Id</a></th>
                 <th scope="col">Ilość Worków</th>
                 <th scope="col">Ulica</th>
                 <th scope="col">Kod pocztowy</th>
@@ -80,7 +82,7 @@
                 <th scope="col">Godzina odbioru</th>
                 <th scope="col">Uwagi dla kuriera</th>
                 <th scope="col">Odebrane</th>
-                <th scope="col">Potwierdzony odbiór</th>
+                <th scope="col"><a href="/form/time" class="table-warning"> Potwierdzony odbiór</a></th>
                 <th scope="col">Potwierdź odbiór</th>
             </tr>
             </thead>
@@ -92,6 +94,7 @@
                 <tr class="table-info">
 
 
+                    <td>${d.id}</td>
                     <td>${d.quantity}</td>
                     <td>${d.street}</td>
                     <td>${d.zipCode}</td>

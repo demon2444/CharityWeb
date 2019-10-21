@@ -75,7 +75,18 @@ public class DonationService {
         return donationRepository.findAllByOrderByIdAsc(id);
     }
 
+    public List<Donation> findAllOrderByPickedOn(Long id) {
+        return donationRepository.findAllByOrOrderByPickedOn(id);
+    }
+
     public Long countAllBags(Long id) {
       return donationRepository.countAllQuantitByUserId(id);
     }
+
+    public Long countInstitutions(Long id) {
+        return donationRepository.countAllInstitutions(id);
+    }
+
+
+
 }
