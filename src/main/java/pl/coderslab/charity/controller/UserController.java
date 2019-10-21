@@ -68,6 +68,8 @@ public class UserController {
                 user.setPassword(passSet);
                 userService.updateUser(user);
             } else {*/
+
+          //todo pobrać usera z repository po id i zapisać
                 userService.saveUser(user);
             //}
             return "redirect:/";

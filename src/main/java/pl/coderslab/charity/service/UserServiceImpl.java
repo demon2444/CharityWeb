@@ -53,9 +53,8 @@ public class UserServiceImpl implements UserService {
 
     public void updateUser(User user) {
 
-        user.setEnabled(true);
-        Role userRole = roleRepository.findByName("ROLE_USER");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+
+
         userRepository.save(user);
     }
 

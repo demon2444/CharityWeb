@@ -32,8 +32,9 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     @Query("select d from Donation d where d.user.id = :id order by d.pickedOn")
     List<Donation> findAllByOrOrderByPickedOn(Long id);
 
-    /*@Query("select d from Donation d where d.user.id = :id order by d.picked")
-    List<Donation> findAllByPicked(Long id);*/
+    @Query("select d from Donation d where d.user.id = :id order by d.isPicked")
+    List<Donation> findAllByPicked(Long id);
+
 
 
 
