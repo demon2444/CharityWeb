@@ -20,7 +20,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().formLogin().loginPage("/login")
                 .and().logout().logoutSuccessUrl("/")
                 .permitAll()
+
                 .and().exceptionHandling().accessDeniedPage("/403");
+        http.authorizeRequests()
+                .antMatchers("/admin").access("hasRole('ADMIN')")
+                .and().formLogin().loginPage("/loginAdmin")
+                .and().logout().logoutSuccessUrl("/").permitAll();
     }
 
     @Bean
