@@ -66,13 +66,11 @@ public class DonationController {
 
     @GetMapping("/profile")
     public String profile(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
-        //List<Donation> donations = donationService.findAllOrderById();
         Long userId = currentUser.getUser().getId();
         Long countBags = donationService.countAllBags(userId);
         Long countInstitutions = donationService.countInstitutions(userId);
         model.addAttribute("bags", countBags);
         model.addAttribute("institutions", countInstitutions);
-        //model.addAttribute("donations", donations);
 
         return "profile";
     }
@@ -114,5 +112,11 @@ public class DonationController {
         return "my-donations";
     }
 
+    @GetMapping("/details/{id}")
+    public String details(@PathVariable Long id, Model model) {
+        Donation donation = donationService.findDonationById(id);
+        model.addAttribute("donation", donation);
+        return "details";
+    }
 
 }

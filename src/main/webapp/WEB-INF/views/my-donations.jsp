@@ -78,7 +78,6 @@
                 <th scope="col">Kod pocztowy</th>
                 <th scope="col">Miasto</th>
                 <th scope="col">Telefon</th>
-                <th scope="col">Instytucja odbierająca</th>
                 <th scope="col">Data odbioru</th>
                 <th scope="col">Godzina odbioru</th>
                 <th scope="col">Uwagi dla kuriera</th>
@@ -94,15 +93,12 @@
 
                 <tr class="table-info">
 
-
                     <td>${d.id}</td>
                     <td>${d.quantity}</td>
                     <td>${d.street}</td>
                     <td>${d.zipCode}</td>
                     <td>${d.city}</td>
                     <td>${d.phone}</td>
-                    <td>${d.institution.name}</td>
-
                     <td>${d.pickUpDate}</td>
                     <td>${d.pickUpTime}</td>
                     <td>${d.pickUpComment}</td>
@@ -116,11 +112,15 @@
                     <td>
                         <a href="/form/done/${d.id}" class="btn btn-secondary btn-sm">Odebrane</a>
                     </td>
+                    <td>
+                        <a href="/form/details/${d.id}" class="btn btn-secondary btn-sm">Szczegóły</a>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
 
         </table>
+
 
      </div>
     </div>

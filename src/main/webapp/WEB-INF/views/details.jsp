@@ -72,7 +72,6 @@
             <thead class="thead-dark">
             <tr>
 
-                <th scope="col"><a href="/form/my" class="table-warning">Id</a></th>
                 <th scope="col">Ilość Worków</th>
                 <th scope="col">Ulica</th>
                 <th scope="col">Kod pocztowy</th>
@@ -82,45 +81,35 @@
                 <th scope="col">Data odbioru</th>
                 <th scope="col">Godzina odbioru</th>
                 <th scope="col">Uwagi dla kuriera</th>
-                <th scope="col"><a href="/form/picked" class="table-warning">Odebrane</a></th>
-                <th scope="col"><a href="/form/time" class="table-warning"> Potwierdzony odbiór</a></th>
-                <th scope="col">Potwierdź odbiór</th>
+                <th scope="col">Oderane</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${donations}" var="d">
 
 
 
                 <tr class="table-info">
 
 
-                    <td>${d.id}</td>
-                    <td>${d.quantity}</td>
-                    <td>${d.street}</td>
-                    <td>${d.zipCode}</td>
-                    <td>${d.city}</td>
-                    <td>${d.phone}</td>
-                    <td>${d.institution.name}</td>
-
-                    <td>${d.pickUpDate}</td>
-                    <td>${d.pickUpTime}</td>
-                    <td>${d.pickUpComment}</td>
-                    <td><c:if test="${d.picked == true}">Tak</c:if>
-                        <c:if test="${d.picked == false}">Nie</c:if>
+                    <td>${donation.quantity}</td>
+                    <td>${donation.street}</td>
+                    <td>${donation.zipCode}</td>
+                    <td>${donation.city}</td>
+                    <td>${donation.phone}</td>
+                    <td>${donation.institution.name}</td>
+                    <td>${donation.pickUpDate}</td>
+                    <td>${donation.pickUpTime}</td>
+                    <td>${donation.pickUpComment}</td>
+                    <td><c:if test="${donation.picked == true}">Tak</c:if>
+                        <c:if test="${donation.picked == false}">Nie</c:if>
                     </td>
-                    <td>${d.pickedOn}
 
 
-                    </td>
-                    <td>
-                        <a href="/form/done/${d.id}" class="btn btn-secondary btn-sm">Odebrane</a>
-                    </td>
                 </tr>
-            </c:forEach>
             </tbody>
 
         </table>
+    <a href="/form/my" class="btn btn-secondary btn-sm">Powrót</a>
 
      </div>
     </div>
