@@ -12,6 +12,7 @@ import pl.coderslab.charity.service.SpringDataUserDetailsService;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
@@ -22,10 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
 
                 .and().exceptionHandling().accessDeniedPage("/403");
-        http.authorizeRequests()
-                .antMatchers("/admin").access("hasRole('ADMIN')")
-                .and().formLogin().loginPage("/loginAdmin")
-                .and().logout().logoutSuccessUrl("/").permitAll();
+        
     }
 
     @Bean
