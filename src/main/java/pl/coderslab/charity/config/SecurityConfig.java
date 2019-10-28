@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
 
                 .and().exceptionHandling().accessDeniedPage("/403");
-        
+
     }
 
     @Bean

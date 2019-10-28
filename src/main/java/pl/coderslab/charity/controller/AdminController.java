@@ -30,7 +30,7 @@ public class AdminController {
         return "loginAdmin";
     }
 
-    @GetMapping("")
+    @GetMapping("/panel")
     public String panel() {
         return "panel";
     }
