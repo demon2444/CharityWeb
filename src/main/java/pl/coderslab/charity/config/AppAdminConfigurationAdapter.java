@@ -8,9 +8,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @Order(1)
-public class App1ConfigurationAdapter extends WebSecurityConfigurerAdapter {
+public class AppAdminConfigurationAdapter extends WebSecurityConfigurerAdapter {
 
-    public App1ConfigurationAdapter() {
+    public AppAdminConfigurationAdapter() {
         super();
     }
 
