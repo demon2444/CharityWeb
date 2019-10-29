@@ -26,12 +26,12 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/admin")
+   /* @GetMapping("/admin")
     @ResponseBody
     public String admin(@AuthenticationPrincipal CurrentUser customUser) {
         User entityUser = customUser.getUser();
         return "Hello " + entityUser.getUsername();
-    }
+    }*/
 
     @GetMapping("/register")
     public String register(Model model) {

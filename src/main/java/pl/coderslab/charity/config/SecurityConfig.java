@@ -37,6 +37,8 @@ public class SecurityConfig {
 
     }
 
+     */
+
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -46,5 +48,5 @@ public class SecurityConfig {
     public SpringDataUserDetailsService customUserDetailsService() {
         return new SpringDataUserDetailsService();
     }
-*/
+
 }

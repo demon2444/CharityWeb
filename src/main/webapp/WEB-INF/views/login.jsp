@@ -38,9 +38,11 @@
       <form:form method="post" modelAttribute="user">
         <div class="form-group">
           <form:input path="username" type="email" name="username" placeholder="Email" />
+          <form:errors path="username" cssClass="ui-state-error"/>
         </div>
         <div class="form-group">
           <form:input path="password" type="password" name="password" placeholder="Hasło" />
+          <form:errors path="password" cssClass="ui-state-error"/>
           <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
         </div>
 

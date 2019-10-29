@@ -26,7 +26,7 @@ public class AppAdminConfigurationAdapter extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/admin/loginAdmin")
-                .defaultSuccessUrl("/admin/panel")
+                .defaultSuccessUrl("/")
 
                 .and()
                 .logout()
@@ -38,7 +38,7 @@ public class AppAdminConfigurationAdapter extends WebSecurityConfigurerAdapter {
 
     }
 
-    @Bean
+/*    @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -46,7 +46,7 @@ public class AppAdminConfigurationAdapter extends WebSecurityConfigurerAdapter {
     @Bean
     public SpringDataUserDetailsService customUserDetailsService() {
         return new SpringDataUserDetailsService();
-    }
+    }*/
 
 
 }

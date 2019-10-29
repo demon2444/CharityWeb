@@ -26,6 +26,7 @@ public class AppUserConfigurationAdapter extends WebSecurityConfigurerAdapter {
 
     }
 
+/*
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -35,6 +36,7 @@ public class AppUserConfigurationAdapter extends WebSecurityConfigurerAdapter {
     public SpringDataUserDetailsService customUserDetailsService() {
         return new SpringDataUserDetailsService();
     }
+*/
 
 
 }
