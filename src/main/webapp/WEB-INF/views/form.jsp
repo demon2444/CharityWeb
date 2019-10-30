@@ -99,7 +99,8 @@
                 <c:forEach items="${cat}" var="c">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="checkbox" name="categories" value="${c.id}" class="categ" data-name="${c.name}">
+                            <input type="checkbox" name="categories" value="${c.id}" class="categ"
+                                   data-name="${c.name}">
                             <span class="checkbox"></span>
                             <span class="description">${c.name}</span>
                         </label>
@@ -149,7 +150,8 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input type="number" path="quantity" name="quantity" id="quantity" step="1" min="1" value="1"/>
+                        <form:input type="number" path="quantity" name="quantity" id="quantity" step="1" min="1"
+                                    value="1"/>
                     </label>
                 </div>
 
@@ -166,7 +168,9 @@
                 <c:forEach items="${institutions}" var="ins">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="radio" name="institution" value="${ins.id}" class="institut" data-nam='${ins.name}'/>
+                            <input type="radio" name="institution" value="${ins.id}" class="institut"
+                                   data-nam='${ins.name}'/>
+
                             <span class="checkbox radio"></span>
                             <span class="description">
                   <div class="title">${ins.name}</div>
@@ -177,6 +181,7 @@
                         </label>
                     </div>
                 </c:forEach>
+                <form:errors path="institution" cssClass="ui-state-error"/>
                     <%--<div class="form-group form-group--checkbox">
                         <label>
                             <input type="radio" name="organization" value="old"/>
@@ -191,10 +196,10 @@
                         </label>
                     </div>--%>
 
-                    <div class="form-group form-group--buttons">
-                        <button type="button" class="btn prev-step">Wstecz</button>
-                        <button type="button" class="btn next-step">Dalej</button>
-                    </div>
+                <div class="form-group form-group--buttons">
+                    <button type="button" class="btn prev-step">Wstecz</button>
+                    <button type="button" class="btn next-step">Dalej</button>
+                </div>
             </div>
 
             <!-- STEP 5 -->
@@ -205,22 +210,26 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street" type="text" name="street" id="street"/> </label>
+                            <label> Ulica <form:input path="street" type="text" name="street" id="street"/>
+                                <form:errors path="street" cssClass="ui-state-error"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city" type="text" name="city" id="city"/> </label>
+                            <label> Miasto <form:input path="city" type="text" name="city" id="city"/>
+                                <form:errors path="city" cssClass="ui-state-error"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Kod pocztowy <form:input path="zipCode" type="text" name="postcode" id="postc"/>
+                                <form:errors path="zipCode" cssClass="ui-state-error"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Numer telefonu <form:input path="phone" type="phone" name="phone" id="phone"/>
+                                <form:errors path="phone" cssClass="ui-state-error"/>
                             </label>
                         </div>
                     </div>
@@ -228,17 +237,24 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input type="date" path="pickUpDate" name="pickUpDate" value="2019-10-30" id="date"/> </label>
+                            <label> Data <form:input type="date" path="pickUpDate" name="pickUpDate" value="2019-10-30"
+                                                     id="date"/>
+                                <form:errors path="pickUpDate" cssClass="ui-state-error"/>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input type="time" path="pickUpTime" value="15:00" id="time" /> </label>
+                            <label> Godzina <form:input type="time" path="pickUpTime" value="15:00" id="time"/>
+                                <form:errors path="pickUpTime" cssClass="ui-state-error"/>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="pickUpComment" name="pickUpComment" rows="5" id="pick" ></form:textarea>
+                                <form:textarea path="pickUpComment" name="pickUpComment" rows="5"
+                                               id="pick"/>
+                                <form:errors path="pickUpComment" cssClass="ui-state-error"/>
                             </label>
                         </div>
                     </div>
