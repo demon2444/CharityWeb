@@ -2,6 +2,7 @@ package pl.coderslab.charity.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 import java.util.Set;
 
@@ -15,12 +16,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty
     @Email
     @Column(nullable = false, unique = true)
     private String username;
+    @NotEmpty
     private String firstname;
+    @NotEmpty
     private String secondname;
 
+    @NotEmpty
     private String password;
     @Transient
     private String password2;

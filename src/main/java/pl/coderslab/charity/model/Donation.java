@@ -3,6 +3,8 @@ package pl.coderslab.charity.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -27,24 +29,31 @@ public class Donation {
     @ManyToOne(fetch = FetchType.EAGER)
     private Institution institution; // (obiekt typu Institution), pamiętaj o odpowiedniej adnotacji.
 
+    @NotEmpty
     private String street;
+    @NotEmpty
     private String city;
-
+    @NotEmpty
     private String zipCode;
 
+    @NotEmpty
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
     @Transient
     private String time;
+    @NotEmpty
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime pickUpTime;
+    @NotEmpty
     private String pickUpComment;
 
     @Column(name = "picked_on")
     private LocalDateTime pickedOn;
 
+    @NotEmpty
     private boolean isPicked;
 
+    @NotEmpty
     private Long phone;
 
     @ManyToOne

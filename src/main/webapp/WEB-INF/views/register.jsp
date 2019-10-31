@@ -23,17 +23,21 @@
 
         <div class="form-group">
             <form:input path="firstname" type="text" name="firstname" placeholder="Imię"/>
+            <form:errors path="firstname" cssClass="ui-state-error"/>
         </div>
         <div class="form-group">
             <form:input path="secondname" type="text" name="secondname" placeholder="Nazwisko"/>
+            <form:errors path="secondname" cssClass="ui-state-error"/>
         </div>
 
         <div class="form-group">
             <form:input path="username" type="email" name="email" placeholder="Email"/>
+            <form:errors path="username" cssClass="ui-state-error"/>
         </div>
 
         <div class="form-group">
             <form:input path="password" type="password" name="password" placeholder="Hasło"/>
+            <form:errors path="password" cssClass="ui-state-error"/>
         </div>
         <div class="form-group">
             <form:input path="password2" type="password" name="password2" placeholder="Powtórz hasło"/>
