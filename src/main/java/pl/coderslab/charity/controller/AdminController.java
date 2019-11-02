@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.UserService;
-import pl.coderslab.charity.service.UserServiceImpl;
 
-import java.util.Comparator;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -28,15 +27,12 @@ public class AdminController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/loginAdmin")
-    public String loginAdmin(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        return "loginAdmin";
-    }
+
 
     @GetMapping("/panel")
-    public String panel() {
+    public String panel(Model model) {
+        List<User> users = userService.findAll();
+        model.addAttribute("users", users);
         return "panel";
     }
 

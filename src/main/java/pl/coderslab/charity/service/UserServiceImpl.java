@@ -10,7 +10,7 @@ import pl.coderslab.charity.repository.UserRepository;
 
 import java.util.Arrays;
 import java.util.HashSet;
-
+import java.util.List;
 
 
 @Service
@@ -58,5 +58,8 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
-
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
 }
