@@ -37,6 +37,10 @@ public class AdminController {
         return "panel";
     }
 
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Long id, Model model){
+        return "edit";
+    }
     @GetMapping("/block/{id}")
     public String change(@PathVariable Long id, Model model) {
         User user = userService.findUserById(id);
