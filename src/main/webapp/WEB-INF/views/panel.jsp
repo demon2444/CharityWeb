@@ -72,49 +72,31 @@
             <thead class="thead-dark">
             <tr>
 
-                <th scope="col"><a href="/form/my" class="tablink">Id</a></th>
-                <th scope="col">Ilość Workówmy-donations.jsp</th>
-                <th scope="col">Ulica</th>
-                <th scope="col">Kod pocztowy</th>
-                <th scope="col">Miasto</th>
-                <th scope="col">Telefon</th>
-                <th scope="col">Data odbioru</th>
-                <th scope="col">Godzina odbioru</th>
-                <th scope="col">Uwagi dla kuriera</th>
-                <th scope="col"><a href="/form/picked" class="tablink">Odebrane</a></th>
-                <th scope="col"><a href="/form/time" class="tablink"> Potwierdzony odbiór</a></th>
-                <th scope="col">Potwierdź odbiór</th>
+                <th scope="col">Imie</th>
+                <th scope="col">Nazwisko</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Konto aktywne</th>
+                <th scope="col"><a href="/form/time" class="tablink">Zarządzań uprawnieniami</a></th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${donations}" var="d">
+            <c:forEach items="${users}" var="u">
 
 
 
                 <tr class="table-info">
 
-                    <td>${d.id}</td>
-                    <td>${d.quantity}</td>
-                    <td>${d.street}</td>
-                    <td>${d.zipCode}</td>
-                    <td>${d.city}</td>
-                    <td>${d.phone}</td>
-                    <td>${d.pickUpDate}</td>
-                    <td>${d.pickUpTime}</td>
-                    <td>${d.pickUpComment}</td>
-                    <td><c:if test="${d.picked == true}">Tak</c:if>
-                        <c:if test="${d.picked == false}">Nie</c:if>
+                    <td>${u.firstname}</td>
+                    <td>${u.secondname}</td>
+                    <td>${u.username}</td>
+                    <td><c:if test="${u.enabled == true}">Tak</c:if>
+                        <c:if test="${u.enabled == false}">Nie</c:if>
                     </td>
-                    <td>${d.pickedOn}
 
+                    <td>
+                        <a href="/admin/change/${u.id}" class="btn btn-secondary btn-sm">Zmień uprawnienia</a>
+                    </td>
 
-                    </td>
-                    <td>
-                        <a href="/form/done/${d.id}" class="btn btn-secondary btn-sm">Odebrane</a>
-                    </td>
-                    <td>
-                        <a href="/form/details/${d.id}" class="btn btn-secondary btn-sm">Szczegóły</a>
-                    </td>
                 </tr>
             </c:forEach>
             </tbody>
