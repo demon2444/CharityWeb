@@ -76,7 +76,10 @@
                 <th scope="col">Nazwisko</th>
                 <th scope="col">E-mail</th>
                 <th scope="col">Konto aktywne</th>
+                <th scope="col">Uprawnienia</th>
                 <th scope="col"><a href="/form/time" class="tablink">Zarządzań uprawnieniami</a></th>
+                <th scope="col"><a href="/form/time" class="tablink">Zabokuj konto</a></th>
+                <th scope="col"><a href="/form/time" class="tablink">Usuń konto</a></th>
             </tr>
             </thead>
             <tbody>
@@ -92,9 +95,17 @@
                     <td><c:if test="${u.enabled == true}">Tak</c:if>
                         <c:if test="${u.enabled == false}">Nie</c:if>
                     </td>
-
+                    <td><c:forEach items="${u.roles.role}" var="nam">
+                        ${nam.name}
+                    </c:forEach>
+                    </td>
                     <td>
                         <a href="/admin/change/${u.id}" class="btn btn-secondary btn-sm">Zmień uprawnienia</a>
+                    </td>
+
+                    <td>
+                        <a href="/admin/bloc/${u.id}" class="btn btn-secondary btn-sm"><c:if test="${u.enabled == true}">Zablokuj</c:if>
+                            <c:if test="${u.enabled == false}">Odblokuj</c:if></a>
                     </td>
 
                 </tr>

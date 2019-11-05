@@ -44,7 +44,11 @@ public class AdminController {
     @GetMapping("/block/{id}")
     public String change(@PathVariable Long id, Model model) {
         User user = userService.findUserById(id);
-        user.setEnabled(false);
+        if(user.isEnabled() == true) {
+            user.setEnabled(false);
+        } else {
+            user.setEnabled(true);
+        }
         userService.updateUser(user);
         return "panel";
     }
