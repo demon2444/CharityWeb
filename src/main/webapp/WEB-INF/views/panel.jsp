@@ -95,17 +95,22 @@
                     <td><c:if test="${u.enabled == true}">Tak</c:if>
                         <c:if test="${u.enabled == false}">Nie</c:if>
                     </td>
-                    <td><c:forEach items="${u.roles.role}" var="nam">
-                        ${nam.name}
+                    <td><c:forEach items="${u.roles}" var="nam">
+                        <c:if test="${nam.name == 'ROLE_ADMIN'}">Administrator<br></c:if>
+                        <c:if test="${nam.name == 'ROLE_USER'}">User<br></c:if>
+
                     </c:forEach>
                     </td>
                     <td>
-                        <a href="/admin/change/${u.id}" class="btn btn-secondary btn-sm">Zmień uprawnienia</a>
+                        <a href="/admin/change/${u.id}" class="btn btn--small">Zmień</a>
                     </td>
 
                     <td>
-                        <a href="/admin/bloc/${u.id}" class="btn btn-secondary btn-sm"><c:if test="${u.enabled == true}">Zablokuj</c:if>
+                        <a href="/admin/block/${u.id}" class="btn btn--small"><c:if test="${u.enabled == true}">Zablokuj</c:if>
                             <c:if test="${u.enabled == false}">Odblokuj</c:if></a>
+                    </td>
+                    <td>
+                        <a href="/admin/delete/${u.id}" class="btn btn--small">Usuń</a>
                     </td>
 
                 </tr>

@@ -1,6 +1,7 @@
 package pl.coderslab.charity.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.model.User;
+import pl.coderslab.charity.service.CurrentUser;
 import pl.coderslab.charity.service.UserService;
 
 import java.util.List;
@@ -37,8 +39,26 @@ public class AdminController {
         return "panel";
     }
 
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id, @AuthenticationPrincipal  CurrentUser currentUser) {
+
+        Long currentId = currentUser.getUser().getId();
+        if(currentId == id) {
+            return "deleteError";
+        }
+        else {
+            userService.deleteUser(id);
+            return "redirect:/admin/panel";
+
+        }
+
+
+    }
+
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Long id, Model model){
+        User user = userService.findUserById(id);
+
         return "edit";
     }
     @GetMapping("/block/{id}")
@@ -50,7 +70,7 @@ public class AdminController {
             user.setEnabled(true);
         }
         userService.updateUser(user);
-        return "panel";
+        return "redirect:/admin/panel";
     }
 
 

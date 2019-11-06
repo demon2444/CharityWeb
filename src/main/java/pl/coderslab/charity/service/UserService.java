@@ -11,5 +11,6 @@ public interface UserService {
     void saveAdmin(User user);
     void updateUser(User user);
     List<User> findAll();
+    void deleteUser(Long id);
 
 }
