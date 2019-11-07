@@ -1,8 +1,6 @@
 package pl.coderslab.charity.model;
 
 
-import org.hibernate.validator.constraints.UniqueElements;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,7 +11,9 @@ public class Institution {
     @Id
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String name;
+    @Column(nullable = false)
     private String description;
 
     @OneToMany(mappedBy = "institution", cascade = CascadeType.ALL)

@@ -109,7 +109,7 @@
             </tbody>
 
         </table>
-    <a href="/form/my" class="btn btn-secondary btn-sm">Powrót</a>
+    <a href="/form/my" class="btn btn--small">Powrót</a>
 
      </div>
     </div>

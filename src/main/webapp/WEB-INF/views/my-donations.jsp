@@ -84,6 +84,7 @@
                 <th scope="col"><a href="/form/picked" class="tablink">Odebrane</a></th>
                 <th scope="col"><a href="/form/time" class="tablink"> Potwierdzony odbiór</a></th>
                 <th scope="col">Potwierdź odbiór</th>
+                <th scope="col">Szczegóły</th>
             </tr>
             </thead>
             <tbody>
@@ -110,10 +111,10 @@
 
                     </td>
                     <td>
-                        <a href="/form/done/${d.id}" class="btn btn-secondary btn-sm">Odebrane</a>
+                        <a href="/form/done/${d.id}" class="btn btn--small">Odebrane</a>
                     </td>
                     <td>
-                        <a href="/form/details/${d.id}" class="btn btn-secondary btn-sm">Szczegóły</a>
+                        <a href="/form/details/${d.id}" class="btn btn--small">Szczegóły</a>
                     </td>
                 </tr>
             </c:forEach>
