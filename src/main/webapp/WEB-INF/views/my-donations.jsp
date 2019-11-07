@@ -110,8 +110,9 @@
 
 
                     </td>
-                    <td>
-                        <a href="/form/done/${d.id}" class="btn btn--small">Odebrane</a>
+                    <td><c:if test="${d.picked == false}"><a href="/form/done/${d.id}" class="btn btn--small">Odebrane</a></c:if>
+
+
                     </td>
                     <td>
                         <a href="/form/details/${d.id}" class="btn btn--small">Szczegóły</a>
