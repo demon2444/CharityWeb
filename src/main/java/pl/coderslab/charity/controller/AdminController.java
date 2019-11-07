@@ -8,11 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.charity.model.Role;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.CurrentUser;
 import pl.coderslab.charity.service.UserService;
 
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/admin")
@@ -55,10 +57,24 @@ public class AdminController {
 
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/change/{id}")
     public String edit(@PathVariable Long id, Model model){
         User user = userService.findUserById(id);
-        userService.saveAdmin(user);
+        Set<Role> roles = user.getRoles();
+        boolean isAdmin = false;
+        for (Role r: roles) {
+            if(r.getName().equals("ROLE_ADMIN")){
+                isAdmin = true;
+            }
+        }
+        if (isAdmin) {
+            userService.revokeAdmin(user);
+        }
+        else {
+            userService.saveAdmin(user);
+        }
+
+
         return "redirect:/admin/panel";
     }
     @GetMapping("/block/{id}")

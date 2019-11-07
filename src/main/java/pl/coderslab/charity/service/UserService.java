@@ -12,5 +12,5 @@ public interface UserService {
     void updateUser(User user);
     List<User> findAll();
     void deleteUser(Long id);
-
+    void revokeAdmin(User user);
 }

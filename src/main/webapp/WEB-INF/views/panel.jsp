@@ -96,8 +96,8 @@
                         <c:if test="${u.enabled == false}">Nie</c:if>
                     </td>
                     <td><c:forEach items="${u.roles}" var="nam">
-                        <c:if test="${nam.name == 'ROLE_ADMIN'}">Administrator<br></c:if>
-                        <c:if test="${nam.name == 'ROLE_USER'}">User<br></c:if>
+                        <c:if test="${nam.name == 'ROLE_ADMIN'}">Administrator <br></c:if>
+                        <c:if test="${nam.name == 'ROLE_USER'}">User</c:if>
 
                     </c:forEach>
                     </td>
