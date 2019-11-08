@@ -8,7 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class CharityApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context =SpringApplication.run(CharityApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(CharityApplication.class, args);
 
     }
 
