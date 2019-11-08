@@ -7,7 +7,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.client.HttpClientErrorException;
 import pl.coderslab.charity.model.User;
 
 import java.util.HashSet;
@@ -30,7 +29,7 @@ public class SpringDataUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
         if(!user.isEnabled()) {
-            throw new LockedException(username);
+            throw new LockedException("Konto zostało zablokowane");
         }
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         user.getRoles().forEach(r -> grantedAuthorities.add(new SimpleGrantedAuthority(r.getName())));
