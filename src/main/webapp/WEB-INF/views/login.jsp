@@ -36,6 +36,9 @@
     <section class="login-page" id="log">
       <h2>Zaloguj się</h2>
       <form:form method="post" modelAttribute="user">
+        <div class="error">
+           <span >${error}</span>
+        </div>
         <div class="form-group">
           <form:input path="username" type="email" name="username" placeholder="Email" />
           <form:errors path="username" cssClass="ui-state-error"/>

@@ -16,6 +16,7 @@ public class AppUserConfigurationAdapter extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/form").authenticated()
                 .and().formLogin().loginPage("/login")
+
                 .and().logout().logoutSuccessUrl("/")
                 .permitAll()
 
