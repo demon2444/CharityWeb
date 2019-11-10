@@ -87,7 +87,7 @@
                         <td>${i.name}</td>
                         <td>${i.description}</td>
                         <td><a href="/admin/institutions/edit/${i.id}" class="btn btn--small">Edytuj</a></td>
-                        <td><a href="/admin/institutions/delete/${u.id}" class="btn btn--small">Usuń</a>
+                        <td><a href="/admin/institutions/delete/${i.id}" class="btn btn--small">Usuń</a>
                         </td>
                     </tr>
                 </c:forEach>

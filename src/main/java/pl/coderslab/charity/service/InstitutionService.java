@@ -38,4 +38,12 @@ public class InstitutionService {
         return institutionRepository.findAll();
     }
 
+    public void delete(Long id) {
+        institutionRepository.deleteById(id);
+    }
+
+    public void save(Institution institution) {
+        institutionRepository.save(institution);
+    }
+
 }
