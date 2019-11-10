@@ -38,7 +38,8 @@
                     <li><a href="/user/settings#update">Ustawienia</a></li>
                     <li><a href="/form/my">Moje zbiórki</a></li>
                     <sec:authorize access="hasRole('ADMIN')">
-                        <li><a href="/admin/panel">Panel</a></li>
+                        <li><a href="/admin/panel">Użytkownicy</a></li>
+                        <li><a href="/admin/institutions">Instytucje</a></li>
                     </sec:authorize>
                     <li><a href="/logout">Wyloguj</a></li>
 
