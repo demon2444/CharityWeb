@@ -22,12 +22,12 @@
     <form:form modelAttribute="institution" action="/admin/institutions/edit" method="post" >
 
         <div class="form-group">
-            <form:input path="name" type="text"/>
-            <form:errors path="name" cssClass="ui-state-error" placeholder="Nazwa"/>
+            <form:input path="name" type="text" placeholder="Nazwa"/>
+            <form:errors path="name" cssClass="ui-state-error" />
         </div>
         <div class="form-group">
-            <form:textarea path="description"/>
-            <form:errors path="description" cssClass="ui-state-error" placeholder="Opis instytucji"/>
+            <form:textarea path="description" placeholder="Opis instytucji"/>
+            <form:errors path="description" cssClass="ui-state-error" />
 
             <form:hidden path="id"/>
         </div>
@@ -35,10 +35,7 @@
 
 
         <div class="form-group form-group--buttons">
-            <button class="btn" type="submit">Zaktualizuj
-      <%--          <c:if test="${institution.id == empty}">Dodaj</c:if>
-                <c:if test="${institution.id == not empty}">Zaktulizuj</c:if>--%>
-                </button>
+            <button class="btn" type="submit">Zapisz</button>
         </div>
     </form:form>
 </section>
