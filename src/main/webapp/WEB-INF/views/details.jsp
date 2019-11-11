@@ -67,25 +67,27 @@
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>--%>
 
-<div class="stats--item">
-        <table class="table table-hover" id="tab">
-            <thead class="thead-dark">
-            <tr>
+        <div class="stats--item">
+            <table class="table table-hover" id="tab">
+                <thead class="thead-dark">
+                <tr>
 
-                <th scope="col">Ilość Worków</th>
-                <th scope="col">Ulica</th>
-                <th scope="col">Kod pocztowy</th>
-                <th scope="col">Miasto</th>
-                <th scope="col">Telefon</th>
-                <th scope="col">Instytucja odbierająca</th>
-                <th scope="col">Data odbioru</th>
-                <th scope="col">Godzina odbioru</th>
-                <th scope="col">Uwagi dla kuriera</th>
-                <th scope="col">Oderane</th>
-            </tr>
-            </thead>
-            <tbody>
-
+                    <th scope="col">Ilość Worków</th>
+                    <th scope="col">Ulica</th>
+                    <th scope="col">Kod pocztowy</th>
+                    <th scope="col">Miasto</th>
+                    <th scope="col">Telefon</th>
+                    <th scope="col">Instytucja odbierająca</th>
+                    <th scope="col">Data odbioru</th>
+                    <th scope="col">Godzina odbioru</th>
+                    <th scope="col">Uwagi dla kuriera</th>
+                    <th scope="col">Oderane</th>
+                    <c:if test="${donation.picked == false}">
+                        <th scope="col">Potwierdź odbiór</th>
+                    </c:if>
+                </tr>
+                </thead>
+                <tbody>
 
 
                 <tr class="table-info">
@@ -104,15 +106,15 @@
                         <c:if test="${donation.picked == false}">Nie</c:if>
                     </td>
                     <c:if test="${donation.picked == false}">
-                    <td><a href="/form/done/${donation.id}" class="btn btn--small">Potwierdź odbiór</a></td>
-                        </c:if>
+                        <td><a href="/form/done/${donation.id}" class="btn btn--small">Potwierdź odbiór</a></td>
+                    </c:if>
                 </tr>
-            </tbody>
+                </tbody>
 
-        </table>
-    <a href="/form/my" class="btn btn--small">Powrót</a>
+            </table>
+            <a href="/form/my" class="btn btn--small">Powrót</a>
 
-     </div>
+        </div>
     </div>
 
 
