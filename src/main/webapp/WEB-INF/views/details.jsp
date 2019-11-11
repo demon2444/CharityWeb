@@ -103,8 +103,9 @@
                     <td><c:if test="${donation.picked == true}">Tak</c:if>
                         <c:if test="${donation.picked == false}">Nie</c:if>
                     </td>
-
-
+                    <c:if test="${donation.picked == false}">
+                    <td><a href="/form/done/${donation.id}" class="btn btn--small">Potwierdź odbiór</a></td>
+                        </c:if>
                 </tr>
             </tbody>
 

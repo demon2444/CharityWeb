@@ -57,8 +57,8 @@
     <div class="slogan container container--90">
         <div class="slogan--item">
             <h1>
-                Twoje konto zostało zablokowane<br/>
-                przez Administratora
+                Ups coś poszło nie tak<br/>
+
                 <a href="/login">Powrót do strony logowania</a>
             </h1>
         </div>
