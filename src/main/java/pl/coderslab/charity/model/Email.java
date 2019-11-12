@@ -16,10 +16,7 @@ public class Email {
         this.text = text;
     }
 
-    public Email(String title, String text) {
-        this.title = title;
-        this.text = text;
-    }
+   
 
     public String getTo() {
         return to;
