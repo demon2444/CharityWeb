@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Properties;
 
+
+
+
 @Component
 public class MailServiceImpl implements MailService{
 
@@ -19,6 +22,15 @@ public class MailServiceImpl implements MailService{
     public void sendSimpleMessage(String to, String title, String text) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
+        message.setSubject(title);
+        message.setText(text);
+        mailSender.send(message);
+    }
+
+
+    public void reciveSimpleMessage(String title, String text) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo("charity.donation12@gmail.com");
         message.setSubject(title);
         message.setText(text);
         mailSender.send(message);
