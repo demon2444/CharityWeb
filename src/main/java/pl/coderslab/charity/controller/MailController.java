@@ -29,8 +29,8 @@ public class MailController {
     }
 
     @PostMapping("/send")
-    public String send(@ModelAttribute String title, @ModelAttribute String text) {
-        mailService.reciveSimpleMessage(title, text);
+    public String send(@ModelAttribute Email email) {
+        mailService.reciveSimpleMessage(email.getTitle(), email.getText());
         return "index";
     }
 
