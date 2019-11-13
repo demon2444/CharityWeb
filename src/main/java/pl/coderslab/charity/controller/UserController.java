@@ -44,12 +44,13 @@ public class UserController {
     public String register(@ModelAttribute @Valid User user, BindingResult result) {
     if(user.getPassword().equals(user.getPassword2()) && !result.hasErrors()) {
         user.setToken(userService.generateUUID());
+
         user.setEnabled(false);
 
         userService.saveUser(user);
         User userEmail = userService.findByUsername(user.getUsername());
 
-        String text = "http://localhost/user/activate/"+userEmail.getId()+"/"+userEmail.getToken();
+        String text = "http://localhost:8080/user/activate/"+userEmail.getId()+"/"+userEmail.getToken();
         mailService.sendSimpleMessage(user.getUsername(), "Link aktywacyjny", text);
 
         return "redirect:/login#log";
@@ -65,11 +66,12 @@ public class UserController {
         if(user.getToken().equals(token)){
 
             user.setEnabled(true);
+            userService.saveUser(user);
 
-            return "activate";
+            return "active";
 
         }
-        else return "notAcitvate";
+        else return "acitveError";
 
 
     }
