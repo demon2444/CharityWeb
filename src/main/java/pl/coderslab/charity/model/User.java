@@ -31,6 +31,8 @@ public class User {
     private String password2;
     private boolean enabled;
 
+    private String token;
+
     @OneToMany(mappedBy = "user")
     private List<Donation> donation;
 
@@ -121,7 +123,13 @@ public class User {
         this.donation = donation;
     }
 
+    public String getToken() {
+        return token;
+    }
 
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     @Override
     public String toString() {

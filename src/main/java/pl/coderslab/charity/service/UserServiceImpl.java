@@ -81,4 +81,9 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
+    public String generateUUID() {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
+    }
 }

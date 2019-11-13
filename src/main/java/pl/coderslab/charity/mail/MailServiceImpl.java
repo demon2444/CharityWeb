@@ -8,8 +8,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Component;
 
 import java.util.Properties;
-
-
+import java.util.UUID;
 
 
 @Component
@@ -35,6 +34,9 @@ public class MailServiceImpl implements MailService{
         message.setText(text);
         message.setReplyTo(reply);
         mailSender.send(message);
+    }
+    public void activationMail(String to, String text) {
+        UUID uuid = UUID.randomUUID();
     }
 
     @Bean

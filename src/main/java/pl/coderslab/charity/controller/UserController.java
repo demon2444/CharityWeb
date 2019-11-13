@@ -1,12 +1,14 @@
 package pl.coderslab.charity.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.charity.mail.MailService;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.CurrentUser;
 import pl.coderslab.charity.service.UserService;
@@ -19,11 +21,14 @@ public class UserController {
 
     private final UserService userService;
     private PasswordEncoder passwordEncoder;
+    private MailService mailService;
 
 
-    public UserController(UserService userService, PasswordEncoder passwordEncoder) {
+    @Autowired
+    public UserController(UserService userService, PasswordEncoder passwordEncoder, MailService mailService) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
+        this.mailService = mailService;
     }
 
 
@@ -38,13 +43,38 @@ public class UserController {
     @PostMapping("/register")
     public String register(@ModelAttribute @Valid User user, BindingResult result) {
     if(user.getPassword().equals(user.getPassword2()) && !result.hasErrors()) {
+        user.setToken(userService.generateUUID());
+        user.setEnabled(false);
+
         userService.saveUser(user);
+        User userEmail = userService.findByUsername(user.getUsername());
+
+        String text = "http://localhost/user/activate/"+userEmail.getId()+"/"+userEmail.getToken();
+        mailService.sendSimpleMessage(user.getUsername(), "Link aktywacyjny", text);
+
         return "redirect:/login#log";
     } else {
 
         return "register";
     }
     }
+
+    @GetMapping("/activate/{id}/{token}")
+    public String activate(@PathVariable Long id, @PathVariable String token){
+        User user = userService.findUserById(id);
+        if(user.getToken().equals(token)){
+
+            user.setEnabled(true);
+
+            return "activate";
+
+        }
+        else return "notAcitvate";
+
+
+    }
+
+
 
     //todo stworzyc role admin z pomocą save
 
@@ -73,4 +103,6 @@ public class UserController {
             return "register";
         }
     }
+
+
 }
