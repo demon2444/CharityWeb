@@ -22,6 +22,9 @@
     <form:form modelAttribute="email" action="/mail/send"  method="post" >
 
         <div class="form-group">
+            <form:input path="reply"  type="text" name="reply" placeholder="Twój email"/>
+        </div>
+        <div class="form-group">
             <form:input path="title"  type="text" name="title" placeholder="Tytuł   "/>
         </div>
         <div class="form-group">

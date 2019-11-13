@@ -30,7 +30,7 @@ public class MailController {
 
     @PostMapping("/send")
     public String send(@ModelAttribute Email email) {
-        mailService.reciveSimpleMessage(email.getTitle(), email.getText());
+        mailService.reciveSimpleMessage(email.getTitle(), email.getText(), email.getReply());
         return "index";
     }
 

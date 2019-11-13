@@ -28,11 +28,12 @@ public class MailServiceImpl implements MailService{
     }
 
 
-    public void reciveSimpleMessage(String title, String text) {
+    public void reciveSimpleMessage(String title, String text, String reply) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo("charity.donation12@gmail.com");
         message.setSubject(title);
         message.setText(text);
+        message.setReplyTo(reply);
         mailSender.send(message);
     }
 
