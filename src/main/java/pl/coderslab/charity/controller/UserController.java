@@ -109,5 +109,25 @@ public class UserController {
         }
     }
 
+    @GetMapping("/recover")
+    public String recover(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "recover";
+    }
+
+    @PostMapping("/recover")
+    public String recoverPass(@ModelAttribute User user, Model model){
+        User userRecover = userService.findByUsername(user.getUsername());
+        String message;
+        if(userRecover.getId() == null) {
+            message = "Nie odnaleziono w bazie użytkownika o takiej nazwie";
+        } else {
+            message = "Na wskazany mail został wysłany link resetujący hasło";
+        }
+        model.addAttribute("message", message);
+        return "mailInfo";
+    }
+
 
 }
