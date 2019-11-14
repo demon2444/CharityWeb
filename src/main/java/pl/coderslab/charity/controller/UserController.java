@@ -62,11 +62,11 @@ public class UserController {
 
     @GetMapping("/activate/{id}/{token}")
     public String activate(@PathVariable Long id, @PathVariable String token){
-        User user = userService.findUserById(id);
-        if(user.getToken().equals(token)){
+        User userEmail = userService.findUserById(id);
+        if(userEmail.getToken().equals(token)){
 
-            user.setEnabled(true);
-            userService.saveUser(user);
+            userEmail.setEnabled(true);
+            userService.updateUser(userEmail);
 
             return "active";
 
