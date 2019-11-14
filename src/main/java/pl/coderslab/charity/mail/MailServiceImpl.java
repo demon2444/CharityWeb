@@ -39,6 +39,15 @@ public class MailServiceImpl implements MailService{
         UUID uuid = UUID.randomUUID();
     }
 
+    @Override
+    public void sendActivationLink(String to, Long id, String token) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(to);
+        message.setSubject("Link aktywacyjny");
+        message.setText("http://localhost:8080/user/activate/" + id + "/" + token);
+        mailSender.send(message);
+    }
+
     @Bean
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
@@ -57,5 +66,6 @@ public class MailServiceImpl implements MailService{
 
         return mailSender;
     }
+
 
 }

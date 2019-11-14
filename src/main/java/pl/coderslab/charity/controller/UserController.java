@@ -48,10 +48,13 @@ public class UserController {
         user.setEnabled(false);
 
         userService.saveUser(user);
+
+
         User userEmail = userService.findByUsername(user.getUsername());
 
-        String text = "http://localhost:8080/user/activate/"+userEmail.getId()+"/"+userEmail.getToken();
-        mailService.sendSimpleMessage(user.getUsername(), "Link aktywacyjny", text);
+        mailService.sendActivationLink(userEmail.getUsername(), userEmail.getId(), userEmail.getToken());
+
+
 
         return "redirect:/login#log";
     } else {
