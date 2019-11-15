@@ -35,9 +35,6 @@ public class MailServiceImpl implements MailService{
         message.setReplyTo(reply);
         mailSender.send(message);
     }
-    public void activationMail(String to, String text) {
-        UUID uuid = UUID.randomUUID();
-    }
 
     @Override
     public void sendActivationLink(String to, Long id, String token) {
@@ -45,6 +42,17 @@ public class MailServiceImpl implements MailService{
         message.setTo(to);
         message.setSubject("Link aktywacyjny");
         message.setText("http://localhost:8080/user/activate/" + id + "/" + token);
+        mailSender.send(message);
+    }
+
+    @Override
+    public void recoverPassword(String to, Long id, String token) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(to);
+        message.setReplyTo("charity.donation12@gmail.com");
+        message.setSubject("Link resetujący hasło");
+        message.setText("Poniżej przesyłamy link resetujacy hasło: \n \n http://localhost:8080/user/reset/" + id + "/" + token +
+        "\n \n Jeśli nie ty wygenerowałeś to żądanie kliknij odpowiedz i powiadom o tym incydencie administratora");
         mailSender.send(message);
     }
 

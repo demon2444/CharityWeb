@@ -122,7 +122,10 @@ public class UserController {
         if (userRecover == null) {
             message = "Nie odnaleziono w bazie użytkownika o takiej nazwie";
         } else {
-
+            String token = userService.generateUUID();
+            userRecover.setToken(token);
+            userService.updateUser(userRecover);
+            mailService.recoverPassword(userRecover.getUsername(), userRecover.getId(), token);
             message = "Na wskazany mail został wysłany link resetujący hasło";
         }
 
@@ -132,6 +135,8 @@ public class UserController {
 
 
     }
+
+    
 
 
 }
