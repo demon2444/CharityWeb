@@ -17,7 +17,7 @@
 <%@include file="fragments/header.jspf" %>
 
 
-<section class="login-page" id="reg">
+<section class="login-page" id="mes">
     <h2>Wyślij wiadomość</h2>
     <form:form modelAttribute="email" action="/mail/send"  method="post" >
 

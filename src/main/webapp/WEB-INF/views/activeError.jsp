@@ -50,14 +50,14 @@
             <li><a href="#" class="btn btn--without-border">O co chodzi?</a></li>
             <li><a href="#" class="btn btn--without-border">O nas</a></li>
             <li><a href="#" class="btn btn--without-border">Fundacje i organizacje</a></li>
-            <li><a href="#" class="btn btn--without-border">Kontakt</a></li>
+            <li><a href="/mail/send" class="btn btn--without-border">Kontakt</a></li>
         </ul>
     </nav>
 
     <div class="slogan container container--90">
         <div class="slogan--item">
             <h1>
-                Ups coś poszło nie tak podczas aktywacji<br/>
+                ${message}<br/>
 
                 <a href="/mail/send">Skontaktuj się z administratorem</a>
             </h1>

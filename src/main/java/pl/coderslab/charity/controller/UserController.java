@@ -62,7 +62,7 @@ public class UserController {
     }
 
     @GetMapping("/activate/{id}/{token}")
-    public String activate(@PathVariable Long id, @PathVariable String token) {
+    public String activate(@PathVariable Long id, @PathVariable String token, Model model) {
         User userEmail = userService.findUserById(id);
         if (userEmail.getToken().equals(token)) {
 
@@ -71,7 +71,12 @@ public class UserController {
 
             return "active";
 
-        } else return "acitveError";
+        } else{
+            String message = "Coś poszło nie tak podczas aktywacji";
+            model.addAttribute("message", message);
+            return "acitveError";
+        }
+
 
 
     }
@@ -136,7 +141,21 @@ public class UserController {
 
     }
 
-    
+    @GetMapping("/reset/{id}/{token}")
+    public String reset(@PathVariable Long id, @PathVariable String token, Model model) {
+        User user = userService.findUserById(id);
+        if (token.equals(user.getToken())){
+            return "reset";
+        }
+        else {
+            String message = "Coś poszlo nie tak poczas weryfiakcji linku";
+            model.addAttribute("message", message);
+            return "activeError";
+        }
+
+
+
+    }
 
 
 }
