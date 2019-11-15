@@ -59,7 +59,7 @@
             <h1>
                 ${message}<br/>
 
-                <a href="/login">Powrót do strony logowania</a>
+                <a href="/login#log">Powrót do strony logowania</a>
             </h1>
         </div>
     </div>

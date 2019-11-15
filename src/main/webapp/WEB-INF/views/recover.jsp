@@ -18,14 +18,14 @@
 
 
 
-    <section class="login-page" id="log">
+    <section class="login-page" id="res">
       <h2>Podaj maila użytkownika aby zresetować hasło</h2>
       <form:form method="post" modelAttribute="user" action="/user/recover">
         <div class="error">
            <span >${error}</span>
         </div>
         <div class="form-group">
-          <form:input path="username" type="email" name="username" placeholder="Email" />
+          <form:input path="username" type="email" placeholder="Email" />
           <form:errors path="username" cssClass="ui-state-error"/>
         </div>
 
