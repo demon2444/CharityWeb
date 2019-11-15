@@ -10,6 +10,7 @@ public interface UserService {
     void saveUser(User user);
     void saveAdmin(User user);
     void updateUser(User user);
+    void updatePassword(User user);
     List<User> findAll();
     void deleteUser(Long id);
     void revokeAdmin(User user);

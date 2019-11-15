@@ -145,6 +145,8 @@ public class UserController {
     public String reset(@PathVariable Long id, @PathVariable String token, Model model) {
         User user = userService.findUserById(id);
         if (token.equals(user.getToken())){
+            user.setPassword(null);
+            model.addAttribute("user", user);
             return "reset";
         }
         else {
@@ -154,6 +156,25 @@ public class UserController {
         }
 
 
+
+    }
+
+    @PostMapping("/reset")
+    public String reset(@ModelAttribute User user, Model model) {
+        String message;
+        if(user.getPassword().equals(user.getPassword2())){
+            userService.updatePassword(user);
+            message = "Nowe hasło zostalo zapisane";
+            model.addAttribute("message", message);
+            return "mailInfo";
+        }
+        else {
+            message = "Podane hasła nie są zgodne";
+            model.addAttribute("message", message);
+            model.addAttribute("user", user);
+
+            return "reset";
+        }
 
     }
 
