@@ -3,10 +3,7 @@ package pl.coderslab.charity.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.mail.MailService;
 import pl.coderslab.charity.model.Email;
 
@@ -34,6 +31,13 @@ public class MailController {
         return "index";
     }
 
+
+
+    @PostMapping("/contact")
+    public String contact(@ModelAttribute String reply, @ModelAttribute String title,  @ModelAttribute String message) {
+        Email email = new Email("charity.donation12@gmail.com", title, message, reply);
+        return "index";
+    }
 
 }
 

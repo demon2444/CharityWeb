@@ -1,6 +1,7 @@
 package pl.coderslab.charity.mail;
 
 
+import pl.coderslab.charity.model.Email;
 
 public interface MailService  {
 

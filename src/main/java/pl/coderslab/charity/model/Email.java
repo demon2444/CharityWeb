@@ -11,6 +11,9 @@ public class Email {
     public Email() {
     }
 
+
+
+
     public Email(String to, String title, String text, String reply) {
         this.to = to;
         this.title = title;

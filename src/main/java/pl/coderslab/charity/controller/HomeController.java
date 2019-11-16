@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.charity.model.Email;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.DonationService;
@@ -40,7 +41,6 @@ public class HomeController {
     public String homeAction(Model model){
         List<Institution> institutionsFirst = institutionService.findAllFirstHalf();
         List<Institution> institutionsSecond = institutionService.findAllSecondHalf();
-
         User user = new User();
         user.setId(null);
         model.addAttribute("user", user);
