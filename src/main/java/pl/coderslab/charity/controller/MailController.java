@@ -34,8 +34,9 @@ public class MailController {
 
 
     @PostMapping("/contact")
-    public String contact(@ModelAttribute String reply, @ModelAttribute String title,  @ModelAttribute String message) {
+    public String contact(@RequestParam String reply, @RequestParam String title,  @RequestParam String message) {
         Email email = new Email("charity.donation12@gmail.com", title, message, reply);
+        mailService.emailContact(email);
         return "index";
     }
 
