@@ -19,10 +19,11 @@
 <body>
 
 <footer>
-    <div class="contact">
+    <div class="contact" id="con">
         <h2>Skontaktuj się z nami</h2>
         <h3>Formularz kontaktowy</h3>
         <form:form class="form--contact" method="post" action="/mail/contact">
+            <input type="hidden" name="to" value="charity.donation12@gmail.com"/>
             <div class="form-group form-group--50"><input type="text" name="reply" placeholder="Email"/></div>
             <div class="form-group form-group--50"><input type="text" name="title" placeholder="Temat"/></div>
 

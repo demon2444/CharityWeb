@@ -33,7 +33,7 @@ public class MailServiceImpl implements MailService{
     message.setTo(email.getTo());
     message.setSubject(email.getTitle());
     message.setText(email.getText());
-    message.setFrom(email.getReply());
+    message.setReplyTo(email.getReply());
     mailSender.send(message);
     }
 
