@@ -6,21 +6,30 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.mail.MailService;
 import pl.coderslab.charity.model.Email;
+import pl.coderslab.charity.model.User;
+import pl.coderslab.charity.service.UserService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/mail")
 public class MailController {
 
     private MailService mailService;
+    private UserService userService;
 
     @Autowired
-    public MailController(MailService mailService) {
+    public MailController(MailService mailService, UserService userService) {
+
         this.mailService = mailService;
+        this.userService = userService;
     }
 
     @GetMapping("/send")
     public String send(Model model) {
         Email email = new Email();
+        List<String> usersnames = userService.getAllUsersNames();
+        email.setUsers(usersnames);
         model.addAttribute("email", email);
         return "send";
     }

@@ -9,7 +9,6 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
 
 
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
@@ -24,7 +23,9 @@
         <h3>Formularz kontaktowy</h3>
         <form:form class="form--contact" method="post" action="/mail/contact">
             <input type="hidden" name="to" value="charity.donation12@gmail.com"/>
-            <div class="form-group form-group--50"><input type="text" name="reply" placeholder="Email"/></div>
+            <div class="form-group form-group--50"><input type="text" name="reply"
+                    <sec:authorize access="isAuthenticated()"> placeholder="<sec:authentication property="principal.username"/>"
+                    </sec:authorize>   <sec:authorize access="isAnonymous()"> placeholder="Email"</sec:authorize> /></div>
             <div class="form-group form-group--50"><input type="text" name="title" placeholder="Temat"/></div>
 
             <div class="form-group"><textarea name="message" placeholder="Wiadomość" rows="1"></textarea></div>

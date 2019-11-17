@@ -1,5 +1,8 @@
 package pl.coderslab.charity.model;
 
+import java.util.List;
+
+
 public class Email {
 
 
@@ -7,6 +10,11 @@ public class Email {
     private String title;
     private String text;
     private String reply;
+
+    private List<String> users;
+
+
+
 
     public Email() {
     }
@@ -52,5 +60,14 @@ public class Email {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public List<String> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<String> users) {
+        this.users = users;
     }
 }

@@ -40,6 +40,7 @@
                     <sec:authorize access="hasRole('ADMIN')">
                         <li><a href="/admin/panel">Użytkownicy</a></li>
                         <li><a href="/admin/institutions">Instytucje</a></li>
+                        <li><a href="/mail/send">Skrzynka nadawcza</a></li>
                     </sec:authorize>
                     <li><a href="/logout">Wyloguj</a></li>
 

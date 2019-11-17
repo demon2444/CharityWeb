@@ -92,4 +92,15 @@ public class UserServiceImpl implements UserService {
         UUID uuid = UUID.randomUUID();
         return uuid.toString();
     }
+
+    @Override
+    public List<String> getAllUsersNames() {
+        List<User> users = userRepository.findAll();
+        List<String> usersNames = new ArrayList<>();
+        for (User u : users
+             ) { usersNames.add(u.getUsername());
+
+        }
+        return usersNames;
+    }
 }

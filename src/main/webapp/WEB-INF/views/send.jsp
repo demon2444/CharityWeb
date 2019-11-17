@@ -22,7 +22,12 @@
     <form:form modelAttribute="email" action="/mail/send"  method="post" >
 
         <div class="form-group">
-            <form:input path="reply"  type="text" name="reply" placeholder="Twój email"/>
+            <form:select path="to" placeholder="Odbiorca" >
+                <c:forEach items="${email.users}" var="us">
+                    <form:option value="${us}"/>
+                </c:forEach>
+            </form:select>
+
         </div>
         <div class="form-group">
             <form:input path="title"  type="text" name="title" placeholder="Tytuł   "/>
