@@ -34,10 +34,10 @@ public class MailController {
 
 
     @PostMapping("/contact")
-    public String contact(@RequestParam String to, @RequestParam String reply, @RequestParam String title,  @RequestParam String message) {
+    public String contact(@RequestParam String to, String reply, String title, String message) {
         Email email = new Email(to , title, message, reply);
         mailService.emailContact(email);
-        return "index";
+        return "redirect:/";
     }
 
 }
