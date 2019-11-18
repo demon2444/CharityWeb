@@ -18,11 +18,11 @@
 
 
 <section class="login-page" id="mes">
-    <h2>Wyślij wiadomość</h2>
+    <h2>Wyślij wiadomość do użytkownika</h2>
     <form:form modelAttribute="email" action="/mail/send"  method="post" >
 
         <div class="form-group">
-            <form:select path="to" placeholder="Odbiorca" >
+            <form:select path="to" placeholder="Odbiorca" cssClass="sel">
                 <c:forEach items="${email.users}" var="us">
                     <form:option value="${us}"/>
                 </c:forEach>
