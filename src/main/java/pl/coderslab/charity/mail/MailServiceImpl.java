@@ -19,11 +19,12 @@ public class MailServiceImpl implements MailService{
     public JavaMailSender mailSender;
 
 
-    public void sendSimpleMessage(String to, String title, String text) {
+    public void sendSimpleMessage(Email email) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(to);
-        message.setSubject(title);
-        message.setText(text);
+        message.setTo(email.getTo());
+        message.setSubject(email.getTitle());
+        message.setText(email.getText());
+        message.setReplyTo("charity.donation12@gmail.com");
         mailSender.send(message);
     }
 

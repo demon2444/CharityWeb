@@ -36,14 +36,14 @@ public class MailController {
 
     @PostMapping("/send")
     public String send(@ModelAttribute Email email) {
-        mailService.reciveSimpleMessage(email.getTitle(), email.getText(), email.getReply());
+        mailService.sendSimpleMessage(email);
         return "index";
     }
 
 
 
     @PostMapping("/contact")
-    public String contact(@RequestParam String to, String reply, String title, String message) {
+    public String contact(@RequestParam String[] to, @RequestParam String reply, String title, String message) {
         Email email = new Email(to , title, message, reply);
         mailService.emailContact(email);
         return "redirect:/";

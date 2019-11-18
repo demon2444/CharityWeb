@@ -6,7 +6,7 @@ import java.util.List;
 public class Email {
 
 
-    private String to;
+    private String[] to;
     private String title;
     private String text;
     private String reply;
@@ -22,7 +22,7 @@ public class Email {
 
 
 
-    public Email(String to, String title, String text, String reply) {
+    public Email(String to[], String title, String text, String reply) {
         this.to = to;
         this.title = title;
         this.text = text;
@@ -38,11 +38,11 @@ public class Email {
         this.reply = reply;
     }
 
-    public String getTo() {
+    public String[] getTo() {
         return to;
     }
 
-    public void setTo(String to) {
+    public void setTo(String to[]) {
         this.to = to;
     }
 

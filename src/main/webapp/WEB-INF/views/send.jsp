@@ -22,7 +22,7 @@
     <form:form modelAttribute="email" action="/mail/send"  method="post" >
 
         <div class="form-group">
-            <form:select path="to" placeholder="Odbiorca" cssClass="sel">
+            <form:select path="to" placeholder="Odbiorca" cssClass="sel" multiple="true">
                 <c:forEach items="${email.users}" var="us">
                     <form:option value="${us}"/>
                 </c:forEach>
