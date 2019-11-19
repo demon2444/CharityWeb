@@ -35,11 +35,12 @@
             <form:errors path="username" cssClass="ui-state-error"/>
         </div>
 
-        <div class="form-group">
-            <form:input path="password" type="password" name="password" placeholder="Hasło"/>
+        <div class="form-group" id="passd">
+            <form:input path="password" type="password" name="password" placeholder="Hasło" id="pass" />
             <form:errors path="password" cssClass="ui-state-error"/>
+            <p id="register"></p>
         </div>
-        <div class="form-group">
+        <div class="form-group" id="pass2">
             <form:input path="password2" type="password" name="password2" placeholder="Powtórz hasło"/>
         </div>
 
@@ -50,7 +51,8 @@
     </form:form>
 </section>
 <%@include file="fragments/footer.jspf" %>
-
+<script src="<c:url value="../../../resources/js/reg.js"/>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </body>
 </html>
