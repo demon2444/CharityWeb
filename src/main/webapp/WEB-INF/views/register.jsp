@@ -35,10 +35,10 @@
             <form:errors path="username" cssClass="ui-state-error"/>
         </div>
 
-        <div class="form-group" id="passd">
-            <form:input path="password" type="password" name="password" placeholder="Hasło" id="pass" />
+        <div class="form-group">
+            <form:input path="password" type="password" name="password" placeholder="Hasło" id="area" />
             <form:errors path="password" cssClass="ui-state-error"/>
-            <p id="register"></p>
+            <p id="counter"></p>
         </div>
         <div class="form-group" id="pass2">
             <form:input path="password2" type="password" name="password2" placeholder="Powtórz hasło"/>
