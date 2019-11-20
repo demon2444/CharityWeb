@@ -1,7 +1,7 @@
 $(function () {
     let counter = $('#counter')
     counter.html("0/100")
-    $("#area").on("change paste keyup keypress", function (e) {
+    $('#area').on("change paste keyup keypress", function (e) {
         counter.html($(this).val().length + "/10")
         if($(this).val().length <= 3) {
             counter.css("color", "green")
