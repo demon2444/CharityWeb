@@ -1,17 +1,29 @@
 $(function () {
-    let counter = $('#counter')
-    counter.html("0/100")
-    $('#area').on("change paste keyup keypress", function (e) {
-        counter.html($(this).val().length + "/10")
-        if($(this).val().length <= 3) {
-            counter.css("color", "green")
-        } else if($(this).val().length < 6) {
-            counter.css("color", "yellow")
-        } else if($(this).val().length >= 6 && $(this).val().length < 10) {
-            counter.css("color", "red")
-        } else {
-            counter.css("color", "red")
-            e.preventDefault()
-        }
-    })
+
+    let myApp = angular.module("myapp", []);
+    myApp.controller("PasswordController", function($scope) {
+
+        let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        let mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+
+        $scope.passwordStrength = {
+            "float": "left",
+            "width": "100px",
+            "height": "25px",
+            "margin-left": "5px"
+        };
+
+        $scope.analyze = function(value) {
+            if(strongRegex.test(value)) {
+                $scope.passwordStrength["background-color"] = "green";
+            } else if(mediumRegex.test(value)) {
+                $scope.passwordStrength["background-color"] = "orange";
+            } else {
+                $scope.passwordStrength["background-color"] = "red";
+            }
+        };
+
+    });
+
+
 })

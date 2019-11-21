@@ -12,8 +12,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 </head>
-<body>
+<body ng-app="myapp">
 <%@include file="fragments/header.jspf" %>
 
 
@@ -35,8 +36,8 @@
             <form:errors path="username" cssClass="ui-state-error"/>
         </div>
 
-        <div class="form-group">
-            <form:input path="password" type="password" name="password" placeholder="Hasło" id="area" />
+        <div class="form-group" ng-controller="PasswordController">
+            <form:input path="password" type="password" name="password" placeholder="Hasło" ng-model="password" ng-change="analyze(password)" />
             <form:errors path="password" cssClass="ui-state-error"/>
             <p id="counter"></p>
         </div>
@@ -52,6 +53,7 @@
 </section>
 <%@include file="fragments/footer.jspf" %>
 <script src="<c:url value="../../../resources/js/reg.js"/>"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </body>
