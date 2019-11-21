@@ -39,6 +39,7 @@
         <div class="form-group" ng-controller="PasswordController">
             <form:input path="password" type="password" name="password" placeholder="Hasło" ng-model="password" ng-change="analyze(password)" />
             <form:errors path="password" cssClass="ui-state-error"/>
+            <div ng-style="passwordStrength"></div>
             <p id="counter"></p>
         </div>
         <div class="form-group" id="pass2">
