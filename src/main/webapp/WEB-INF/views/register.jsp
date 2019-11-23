@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body ng-app="myapp">
 <%@include file="fragments/header.jspf" %>
@@ -46,7 +47,7 @@
         </div>
 
         <div class="form-group form-group--buttons">
-            <a href="/user/login" class="btn btn--without-border">Zaloguj się</a>
+            <a href="/login" class="btn btn--without-border">Zaloguj się</a>
             <button class="btn" type="submit">Załóż konto</button>
         </div>
     </form:form>

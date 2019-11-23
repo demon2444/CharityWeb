@@ -17,10 +17,10 @@ $(document.valdi(function () {
             $('#passwd').style.css("background-color", "red");
             this["background-color"] = "red";
         }
+
+        $('#counter').text(validation);
+
     }
-
-
-
 }))
 
 
