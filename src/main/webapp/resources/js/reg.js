@@ -1,29 +1,29 @@
-$(function () {
+$(document.valdi(function () {
 
-    let myApp = angular.module("myapp", []);
-    myApp.controller("PasswordController", function($scope) {
+    let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    let mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
 
-        let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-        let mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+    let validation = $('#passwd').val();
 
-        $scope.passwordStrength = {
-        /*    "float": "left",
-            "width": "100px",
-            "height": "25px",
-            "margin-left": "5px"*/
-        };
+    let validate = function (value) {
+        if (strongRegex.test(validation)) {
+            $('#passwd').style.css("back")
+            this["background-color"] = "green";
+        } else if (mediumRegex.test(validation)) {
+            $('#passwd').css("background-color", "orange");
+            this["background-color"] = "orange";
+        } else {
 
-        $scope.analyze = function(value) {
-            if(strongRegex.test(value)) {
-                $scope.passwordStrength["background-color"] = "green";
-            } else if(mediumRegex.test(value)) {
-                $scope.passwordStrength["background-color"] = "orange";
-            } else {
-                $scope.passwordStrength["background-color"] = "red";
-            }
-        };
-
-    });
+            $('#passwd').style.css("background-color", "red");
+            this["background-color"] = "red";
+        }
+    }
 
 
-})
+
+}))
+
+
+
+
+
