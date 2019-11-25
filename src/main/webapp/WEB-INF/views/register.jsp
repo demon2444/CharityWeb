@@ -37,7 +37,7 @@
         </div>
 
         <div class="form-group" >
-            <form:input path="password" type="password" name="password" placeholder="Hasło" id="passwd"/>
+            <form:input path="password" type="password" id="passwd" placeholder="Hasło"  />
             <form:errors path="password" cssClass="ui-state-error"/>
             <p id="counter"></p>
         </div>
