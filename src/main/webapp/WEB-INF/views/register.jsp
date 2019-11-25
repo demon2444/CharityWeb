@@ -23,7 +23,7 @@
     <form:form modelAttribute="user" method="post">
 
         <div class="form-group">
-            <form:input path="firstname" type="text" name="firstname" placeholder="Imię"/>
+            <form:input path="firstname" type="text" name="firstname" placeholder="Imię" id="nam"/>
             <form:errors path="firstname" cssClass="ui-state-error"/>
         </div>
         <div class="form-group">
@@ -36,10 +36,9 @@
             <form:errors path="username" cssClass="ui-state-error"/>
         </div>
 
-        <div class="form-group" ng-controller="PasswordController">
-            <form:input path="password" type="password" name="password" placeholder="Hasło" id="passwd" />
+        <div class="form-group" >
+            <form:input path="password" type="password" name="password" placeholder="Hasło" id="passwd"/>
             <form:errors path="password" cssClass="ui-state-error"/>
-            <div ng-style="passwordStrength"></div>
             <p id="counter"></p>
         </div>
         <div class="form-group" id="pass2">
@@ -53,8 +52,8 @@
     </form:form>
 </section>
 <%@include file="fragments/footer.jspf" %>
-<script src="<c:url value="../../../resources/js/reg.js"/>"></script>
-
+<%--<script src="/../../resources/js/reg.js"></script>--%>
+<script src="/../../resources/js/register.js"></script>
 
 </body>
 </html>
