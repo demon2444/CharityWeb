@@ -41,7 +41,7 @@
             <p id="counter"></p>
         </div>
         <div class="form-group" id="pass2">
-            <form:input path="password2" type="password" name="password2" placeholder="Powtórz hasło"/>
+            <form:input path="password2" type="password" name="password2" id="passwd2" placeholder="Powtórz hasło"/>
         </div>
 
         <div class="form-group form-group--buttons">

@@ -14,25 +14,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     regvalue.onkeyup = function useValue() {
 
-        let reg = document.getElementById('passwd').value;
 
+        let password = document.getElementById('passwd').value;
+        let password2 = document.getElementById("passwd2").value;
 
-        if (reg.match(maxRegex)) {
+        if (password.match(maxRegex)) {
 
             regvalue.style.backgroundColor = '#00ff50';
             console.log("green")
             console.log(reg)
         }
-        if (reg.match(minRegex) && !reg.match(maxRegex)) {
+        if (password.match(minRegex) && !password.match(maxRegex)) {
             regvalue.style.backgroundColor = '#ff5500';
             console.log("orange")
             console.log(reg)
-        }  if(!reg.match(minRegex) && !reg.match(maxRegex)){
+        }  if(!password.match(minRegex) && !password.match(maxRegex)){
 
             regvalue.style.backgroundColor = '#ff272c';
             console.log("red")
             console.log(reg)
 
+        }
+
+        if(password !== password2) {
+            console.log("Hasła nie są identyczne")
         }
 
     }
