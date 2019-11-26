@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(reg)
         }
         if (password.match(minRegex) && !password.match(maxRegex)) {
-            regvalue.style.backgroundColor = '#ff5500';
+            regvalue.style.backgroundColor = '#ff6600';
             console.log("orange")
             console.log(reg)
         }  if(!password.match(minRegex) && !password.match(maxRegex)){
