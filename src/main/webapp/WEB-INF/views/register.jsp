@@ -40,8 +40,10 @@
             <form:errors path="password" cssClass="ui-state-error"/>
             <p id="pass"></p>
         </div>
-        <div class="form-group" id="pass2">
-            <form:input path="password2" type="password" name="password2" id="passwd2" placeholder="Powtórz hasło"/>
+        <div class="form-group">
+            <form:input path="password2" type="password" id="passwd2" placeholder="Powtórz hasło"/>
+            <form:errors path="password2" cssClass="ui-state-error"/>
+            <p id="pass2"></p>
         </div>
 
         <div class="form-group form-group--buttons">
