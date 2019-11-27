@@ -38,7 +38,7 @@
         <div class="form-group" >
             <form:input path="password" type="password" id="passwd" placeholder="Hasło"  />
             <form:errors path="password" cssClass="ui-state-error"/>
-            <p id="counter"></p>
+            <p id="pass"></p>
         </div>
         <div class="form-group" id="pass2">
             <form:input path="password2" type="password" name="password2" id="passwd2" placeholder="Powtórz hasło"/>
