@@ -22,17 +22,20 @@
     <form:form modelAttribute="user" method="post">
 
         <div class="form-group">
-            <form:input path="firstname" type="text" name="firstname" placeholder="Imię" id="nam"/>
+            <form:input path="firstname" type="text" placeholder="Imię" id="firstname"/>
             <form:errors path="firstname" cssClass="ui-state-error"/>
+            <p id="firstText"></p>
         </div>
         <div class="form-group">
-            <form:input path="secondname" type="text" name="secondname" placeholder="Nazwisko"/>
+            <form:input path="secondname" type="text" placeholder="Nazwisko" id="secondname"/>
             <form:errors path="secondname" cssClass="ui-state-error"/>
+            <p id="secondText"></p>
         </div>
 
         <div class="form-group">
-            <form:input path="username" type="email" name="email" placeholder="Email"/>
+            <form:input path="username" type="email" placeholder="Email"/>
             <form:errors path="username" cssClass="ui-state-error"/>
+            <p id="username"></p>
         </div>
 
         <div class="form-group" >

@@ -4,14 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
     let minRegex = new RegExp("(^(?=.*\\d)(?=.*[a-z]){8,})");
     let maxRegex = new RegExp("(^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$)");
 
+    let nameRegex = new RegExp("(^[a-zA-Z]{2,})")
+
 
     let passText = document.getElementById('pass');
-
     let pass2Text = document.getElementById('pass2');
+    let firstnameText = document.getElementById('firstText');
+    let secondnameText = document.getElementById('secondText');
 
     let regvalue = document.getElementById("passwd");
-
     let confirmPass = document.getElementById('passwd2');
+
+    let firstname = document.getElementById('firstname');
+    let secondname = document.getElementById('secondname');
 
 
     regvalue.onkeyup = function useValue() {
@@ -51,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-
     }
 
     confirmPass.onkeyup = function () {
@@ -76,6 +80,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
+    firstname.onkeyup = function () {
+
+
+        let name = firstname.value;
+        if (name.match(nameRegex)) {
+            firstname.style.backgroundColor = '#00ff50';
+            firstnameText.innerText = '';
+        } else {
+            firstname.style.backgroundColor = '#ff272c';
+            firstnameText.style.cssText = 'font-size: 2em; color: #ff272c';
+            firstnameText.innerText = 'Za krótka nazwa';
+        }
+
+
+    }
+
+    secondname.onkeyup = function () {
+
+
+        let name = secondname.value;
+        if (name.match(nameRegex)) {
+            secondname.style.backgroundColor = '#00ff50';
+            secondnameText.innerText = '';
+        } else {
+            secondname.style.backgroundColor = '#ff272c';
+            secondnameText.style.cssText = 'font-size: 2em; color: #ff272c';
+            secondnameText.innerText = 'Za krótka nazwa';
+        }
+
+
+    }
 
 
 })
