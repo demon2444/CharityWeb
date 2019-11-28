@@ -4,20 +4,22 @@ document.addEventListener("DOMContentLoaded", () => {
     let minRegex = new RegExp("(^(?=.*\\d)(?=.*[a-z]){8,})");
     let maxRegex = new RegExp("(^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$)");
 
-    let nameRegex = new RegExp("(^[a-zA-Z]{2,})")
+    let nameRegex = new RegExp("(^[a-zA-Z]{2,})");
+    let emailRegex = new RegExp("(^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$)");
 
 
     let passText = document.getElementById('pass');
     let pass2Text = document.getElementById('pass2');
     let firstnameText = document.getElementById('firstText');
     let secondnameText = document.getElementById('secondText');
+    let usernameText = document.getElementById('username');
 
     let regvalue = document.getElementById("passwd");
     let confirmPass = document.getElementById('passwd2');
 
     let firstname = document.getElementById('firstname');
     let secondname = document.getElementById('secondname');
-
+    let email = document.getElementById('mail');
 
     regvalue.onkeyup = function useValue() {
         let password = document.getElementById('passwd').value;
@@ -79,16 +81,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     }
-    function validForm(formId, paragraphId){
+    function validForm(formId, paragraphId, regex){
         formId.onkeyup = function () {
             let name = formId.value;
-            if(name.match(nameRegex)){
+            if(name.match(regex)){
                 formId.style.backgroundColor = '#00ff50';
                 paragraphId.innerText = '';
             } else {
                 formId.style.backgroundColor = '#ff272c';
                 paragraphId.style.cssText = 'font-size: 2em; color: #ff272c';
-                paragraphId.innerText = 'Conajmniej dwie litery bez cyfr';
+                paragraphId.innerText = 'Nieprawidłowy format';
             }
 
         }
@@ -97,8 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    validForm(firstname, firstnameText);
-    validForm(secondname, secondnameText);
+    validForm(firstname, firstnameText, nameRegex);
+    validForm(secondname, secondnameText, nameRegex);
+    validForm(email, usernameText, emailRegex);
 
 
 

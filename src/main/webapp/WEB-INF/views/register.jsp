@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group">
-            <form:input path="username" type="email" placeholder="Email"/>
+            <form:input path="username" id="mail" type="email" placeholder="Email"/>
             <form:errors path="username" cssClass="ui-state-error"/>
             <p id="username"></p>
         </div>
