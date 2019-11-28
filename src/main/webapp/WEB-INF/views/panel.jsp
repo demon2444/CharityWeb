@@ -21,51 +21,11 @@
 <%@include file="fragments/header.jspf" %>
 
 
-<%--<section class="login-page" id="reg">
-    <h2>Załóż konto</h2>
-    <form:form modelAttribute="user" method="post" action="/user/profile">
 
-
-        <div class="form-group" id="update">
-            <form:hidden path="id"/>
-            <form:input path="firstname" type="text" name="firstname" placeholder="Imię"/>
-        </div>
-        <div class="form-group">
-            <form:input path="secondname" type="text" name="secondname" placeholder="Nazwisko"/>
-        </div>
-
-        <div class="form-group">
-            <form:input path="username" type="email" name="email" placeholder="Email"/>
-        </div>
-
-        <div class="form-group">
-            <input path="password" type="password" name="password" placeholder="Hasło"/>
-        </div>
-        <div class="form-group">
-            <input path="password2" type="password" name="password2" placeholder="Powtórz hasło"/>
-        </div>
-
-        <div class="form-group form-group--buttons">
-            <button class="btn" type="submit">Zauktualizuj</button>
-        </div>
-    </form:form>
-</section>--%>
 
 <section class="stats">
     <div class="container container--85">
-        <%--<div class="stats--item">
-            <em>${bags}</em>
 
-            <h3>Oddanych worków</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
-                tempora!</p>
-        </div>
-
-
-            <em>${donateInstitutions}</em>
-            <h3>Wspartych organizacji</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
-                quam.</p>--%>
 
 <div class="stats--item">
         <table class="table table-hover" id="tab">
