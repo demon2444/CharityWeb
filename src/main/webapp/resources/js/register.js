@@ -79,39 +79,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     }
+    function validForm(formId, paragraphId){
+        formId.onkeyup = function () {
+            let name = formId.value;
+            if(name.match(nameRegex)){
+                formId.style.backgroundColor = '#00ff50';
+                paragraphId.innerText = '';
+            } else {
+                formId.style.backgroundColor = '#ff272c';
+                paragraphId.style.cssText = 'font-size: 2em; color: #ff272c';
+                paragraphId.innerText = 'Conajmniej dwie litery bez cyfr';
+            }
 
-
-    firstname.onkeyup = function () {
-
-
-        let name = firstname.value;
-        if (name.match(nameRegex)) {
-            firstname.style.backgroundColor = '#00ff50';
-            firstnameText.innerText = '';
-        } else {
-            firstname.style.backgroundColor = '#ff272c';
-            firstnameText.style.cssText = 'font-size: 2em; color: #ff272c';
-            firstnameText.innerText = 'Za krótka nazwa';
         }
+
 
 
     }
 
-    secondname.onkeyup = function () {
+    validForm(firstname, firstnameText);
+    validForm(secondname, secondnameText);
 
 
-        let name = secondname.value;
-        if (name.match(nameRegex)) {
-            secondname.style.backgroundColor = '#00ff50';
-            secondnameText.innerText = '';
-        } else {
-            secondname.style.backgroundColor = '#ff272c';
-            secondnameText.style.cssText = 'font-size: 2em; color: #ff272c';
-            secondnameText.innerText = 'Za krótka nazwa';
-        }
-
-
-    }
 
 
 })
