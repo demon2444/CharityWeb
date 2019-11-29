@@ -19,7 +19,7 @@
 
 <section class="login-page" id="reg">
     <h2>Załóż konto</h2>
-    <form:form modelAttribute="user" method="post" action="/user/profile">
+    <form:form modelAttribute="user" method="post">
 
 
         <div class="form-group" id="update">

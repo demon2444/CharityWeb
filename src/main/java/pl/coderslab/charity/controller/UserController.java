@@ -6,6 +6,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.mail.MailService;
@@ -94,22 +95,22 @@ public class UserController {
 
     @PostMapping("/settings")
     public String profile(@ModelAttribute @Valid User user, @AuthenticationPrincipal CurrentUser currentUser, BindingResult result) {
-        if (user.getPassword().equals(user.getPassword2()) && !result.hasErrors()) {
-          /*  if(user.getPassword().equals("")){
-                String passSet = currentUser.getPassword();
-                user.setPassword(passSet);
-                userService.updateUser(user);
-            } else {*/
-
-            //todo pobrać usera z repository po id i zapisać
+        if(StringUtils.isEmpty(user.getPassword()) && !result.hasErrors()){
+            user.setPassword(currentUser.getPassword());
+            userService.updateUser(user);
+        } else if (user.getPassword().equals(user.getPassword2()) && !result.hasErrors()) {
             userService.saveUser(user);
-            //}
-            return "redirect:/";
-        } else {
 
-            return "register";
         }
-    }
+             else {
+            return "register";
+            //todo pobrać usera z repository po id i zapisać
+            }
+        return "redirect:/";
+
+        }
+
+
 
     @GetMapping("/recover")
     public String recover(Model model) {
