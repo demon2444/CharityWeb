@@ -94,11 +94,13 @@ public class UserController {
     }
 
     @PostMapping("/settings")
-    public String profile(@ModelAttribute @Valid User user, @AuthenticationPrincipal CurrentUser currentUser, BindingResult result) {
-        if(StringUtils.isEmpty(user.getPassword()) && !result.hasErrors()){
-            user.setPassword(currentUser.getPassword());
+    public String profile(@ModelAttribute @Valid User user, @RequestParam String passChange, BindingResult result) {
+
+        if(StringUtils.isEmpty(passChange) && StringUtils.isEmpty(user.getPassword2()) && !result.hasErrors()){
+            //user.setPassword(.getPassword());
             userService.updateUser(user);
-        } else if (user.getPassword().equals(user.getPassword2()) && !result.hasErrors()) {
+        } else if(passChange.equals(user.getPassword2()) && !result.hasErrors()) {
+            user.setPassword(passChange);
             userService.saveUser(user);
 
         }

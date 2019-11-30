@@ -19,7 +19,7 @@
 
 <section class="login-page" id="reg">
     <h2>Załóż konto</h2>
-    <form:form modelAttribute="user" method="post">
+    <form:form modelAttribute="user" method="post" action="/user/settings">
 
 
         <div class="form-group" id="update">
@@ -35,10 +35,10 @@
         </div>
 
         <div class="form-group">
-            <input path="password" type="password" name="password" placeholder="Hasło"/>
+            <input path="password" type="password" name="passChange" placeholder="Hasło"/>
         </div>
         <div class="form-group">
-            <input path="password2" type="password" name="password2" placeholder="Powtórz hasło"/>
+            <form:input path="password2" type="password" name="password2" placeholder="Powtórz hasło"/>
         </div>
 
         <div class="form-group form-group--buttons">

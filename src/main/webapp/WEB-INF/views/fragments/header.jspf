@@ -35,7 +35,7 @@
                 Witaj <sec:authentication property="principal.username"/>
                 <ul class="dropdown">
                     <li><a href="/form/profile#show">Profil</a></li>
-                    <li><a href="/user/settings#update">Ustawienia</a></li>
+                    <li><a href="/user/settings">Ustawienia</a></li>
                     <li><a href="/form/my">Moje zbiórki</a></li>
                     <sec:authorize access="hasRole('ADMIN')">
                         <li><a href="/admin/panel">Użytkownicy</a></li>
