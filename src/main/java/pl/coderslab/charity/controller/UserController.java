@@ -3,6 +3,7 @@ package pl.coderslab.charity.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,7 @@ public class UserController {
     private final UserService userService;
     private PasswordEncoder passwordEncoder;
     private MailService mailService;
+
 
 
     @Autowired
@@ -166,6 +168,7 @@ public class UserController {
     public String reset(@ModelAttribute User user, Model model) {
         String message;
         if(user.getPassword().equals(user.getPassword2())){
+            user.setEnabled(true);
             userService.updatePassword(user);
             message = "Nowe hasło zostalo zapisane";
             model.addAttribute("message", message);
