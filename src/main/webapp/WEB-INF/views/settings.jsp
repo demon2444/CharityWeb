@@ -35,7 +35,10 @@
         </div>
 
         <div class="form-group">
-            <input path="password" type="password" name="passChange" placeholder="Hasło"/>
+            <input type="password" name="passChange" placeholder="Hasło"/>
+            <form:hidden path="password"/>
+            <form:hidden path="enabled"/>
+            <form:hidden path="roles"/>
         </div>
         <div class="form-group">
             <form:input path="password2" type="password" name="password2" placeholder="Powtórz hasło"/>
