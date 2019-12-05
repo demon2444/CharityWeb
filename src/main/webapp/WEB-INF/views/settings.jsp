@@ -24,24 +24,24 @@
 
         <div class="form-group" id="update">
             <form:hidden path="id"/>
-            <form:input path="firstname" type="text" name="firstname" placeholder="Imię"/>
+            <form:input path="firstname" type="text" name="firstname" id="firstname" placeholder="Imię"/>
         </div>
         <div class="form-group">
-            <form:input path="secondname" type="text" name="secondname" placeholder="Nazwisko"/>
-        </div>
-
-        <div class="form-group">
-            <form:input path="username" type="email" name="email" placeholder="Email"/>
+            <form:input path="secondname" type="text" name="secondname" id="secondname" placeholder="Nazwisko"/>
         </div>
 
         <div class="form-group">
-            <input type="password" name="passChange" placeholder="Hasło"/>
+            <form:input path="username" type="email" name="email" id="mail" placeholder="Email"/>
+        </div>
+
+        <div class="form-group">
+            <input type="password" name="passChange" placeholder="Hasło" id="passwd"/>
             <form:hidden path="password"/>
             <form:hidden path="enabled"/>
             <form:hidden path="roles"/>
         </div>
         <div class="form-group">
-            <form:input path="password2" type="password" name="password2" placeholder="Powtórz hasło"/>
+            <form:input path="password2" type="password" name="password2" id="paswd2" placeholder="Powtórz hasło"/>
         </div>
 
         <div class="form-group form-group--buttons">
@@ -50,6 +50,7 @@
     </form:form>
 </section>
 <%@include file="fragments/footer.jspf" %>
+<script src="/../../resources/js/register.js"></script>
 
 
 </body>
