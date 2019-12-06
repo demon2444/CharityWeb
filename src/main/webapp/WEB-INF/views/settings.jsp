@@ -25,23 +25,28 @@
         <div class="form-group" id="update">
             <form:hidden path="id"/>
             <form:input path="firstname" type="text" name="firstname" id="firstname" placeholder="Imię"/>
+            <p id="firstText"></p>
         </div>
         <div class="form-group">
             <form:input path="secondname" type="text" name="secondname" id="secondname" placeholder="Nazwisko"/>
+            <p id="secondText"></p>
         </div>
 
         <div class="form-group">
             <form:input path="username" type="email" name="email" id="mail" placeholder="Email"/>
+            <p id="username"></p>
         </div>
 
         <div class="form-group">
             <input type="password" name="passChange" placeholder="Hasło" id="passwd"/>
+            <p id="pass"></p>
             <form:hidden path="password"/>
             <form:hidden path="enabled"/>
             <form:hidden path="roles"/>
         </div>
         <div class="form-group">
             <form:input path="password2" type="password" name="password2" id="paswd2" placeholder="Powtórz hasło"/>
+            <p id="pass2"></p>
         </div>
 
         <div class="form-group form-group--buttons">
