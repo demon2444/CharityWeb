@@ -42,7 +42,6 @@
             <p id="pass"></p>
             <form:hidden path="password"/>
             <form:hidden path="enabled"/>
-            <form:hidden path="roles"/>
         </div>
         <div class="form-group">
             <form:input path="password2" type="password" name="password2" id="paswd2" placeholder="Powtórz hasło"/>
