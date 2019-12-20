@@ -103,7 +103,7 @@ public class UserController {
             userService.updateUser(user);
         } else if(passChange.equals(user.getPassword2()) && !result.hasErrors()) {
             user.setPassword(passChange);
-            userService.saveUser(user);
+            userService.updateUser(user);
 
         }
              else {
