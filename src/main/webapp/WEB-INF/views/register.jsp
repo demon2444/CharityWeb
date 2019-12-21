@@ -18,7 +18,8 @@
 
 
 <section class="login-page" id="reg">
-    <h2>Załóż konto</h2>
+    <h2><sec:authorize access="isAnonymous()">Załóż konto</sec:authorize>
+        <sec:authorize access="isAuthenticated()"> Zmień dane</sec:authorize> </h2>
     <form:form modelAttribute="user" method="post">
 
         <div class="form-group">

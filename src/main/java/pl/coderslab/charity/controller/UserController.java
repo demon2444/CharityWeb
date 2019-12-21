@@ -99,7 +99,6 @@ public class UserController {
     public String profile(@ModelAttribute @Valid User user, @RequestParam String passChange, BindingResult result) {
 
         if(StringUtils.isEmpty(passChange) && StringUtils.isEmpty(user.getPassword2()) && !result.hasErrors()){
-            //user.setPassword(.getPassword());
             userService.updateUser(user);
         } else if(passChange.equals(user.getPassword2()) && !result.hasErrors()) {
             user.setPassword(passChange);
